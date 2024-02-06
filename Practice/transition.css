@@ -1,0 +1,39 @@
+div
+{
+    height: 200px;
+    width: 200px;
+    background-color: mediumvioletred;
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transition: all 0.5s ease 0s;
+    /* animation: rotation ease infinite; */
+    align-content: ;
+}
+/* @keyframes rotation {
+    0%
+    {
+        transform: rotate(90deg);
+    }
+    50%
+    {
+        transform: rotate(180deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+    
+} */
+div:hover
+{
+    background-color: rgb(173, 173, 208);
+    color: black;
+    /* translate: -30px; */
+    transform: rotatey(180deg);
+    transform: scale(2);
+    /* transform: translate(-100px, -100px); */
+    transform: translatez(100px);
+}

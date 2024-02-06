@@ -1,0 +1,43 @@
+h1
+    {
+        color: blue;
+        border-style: solid;
+        border-width:thick;
+        border-color: deeppink;
+        display: inline-block;
+        
+    }
+#box
+{
+    color: aliceblue;
+}
+.heading
+{
+    color: red;
+}
+button
+{
+    background-color: green;
+}
+#abc
+{
+    text-decoration: green wavy underline 4px;
+/*    text-decoration: line-through red;*/
+}
+#xyz
+{
+    font-family: segoe ui;
+    font-style: oblique;
+    font-weight: 200;
+    font-size: 25px;
+    text-transform: capitalize;/*Each word's first alphabet is capital or uppercase or lowercase*/
+}
+#outer
+{
+    font-family: cursive;
+    font-size: 25px;
+}
+#inner
+{
+    font-size: 10px;
+}

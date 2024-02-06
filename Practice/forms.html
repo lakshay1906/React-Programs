@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+</head>
+<body>
+
+	<h2>Applying for Full Stack Java Developer Role</h2>
+	<form>
+	
+	<div>
+	<label for="name">Enter Name: </label>
+	<input type="text" id="name" name="name" placeholder="Enter your name" required>
+	</div>
+	
+	<div>
+	<label for="password">Enter Passcode: </label>
+	<input type="password" id="passcode" name="password" placeholder="Enter your password" required>
+	</div>
+	
+	<div>
+	<input type="radio" id="radiobox" name="gender" required>
+	<label for="radiobox">Male</label>
+	<input type="radio" id="radiobox1" name="gender" required>
+	<label for="radiobox1">Female</label>
+	</div>
+	
+	<div>
+	<label for="dob">Enter your Date of Birth: </label>
+	<input type="date" id="dob" required>
+	</div>
+	
+	<div>
+	<label for="phone">Enter your Contact No.: </label>
+	<input type="tel" id="phone" required>
+	</div>
+	
+	<div>
+	<label for="email">Enter your email address: </label>
+	<input type="email" id="email" required>
+	</div>
+	
+	<div>
+	<label for="url">Enter your LinkedIn URL:</label>
+	<input type="url" id="url">
+	</div>
+	
+	<div>
+	<label for="yg">Enter the month and year of graduation: </label>
+	<input type="month" id="yg">
+	</div>
+	
+	<div>
+	<label for="exp">How much experience do you have: </label>
+	<input type="number" id="exp">
+	</div>
+	
+	<div>
+	<label for="salary">Enter your expected salary: </label>
+	<input type="range" id="salary">
+	</div>
+	
+	<div>
+	<label for="file">Upload you resume: </label>
+	<input type="file" id="file" required>
+	</div>
+	
+	<div>
+	<input type="checkbox" id="checkbox" name="checkbox" required>
+	<label for="checkbox">Agree to our <a href="">Terms and Conditions</a></label>
+	</div>
+	
+	<div>
+	<select name="Question" id="ques">
+	<option value="What is your pet name?">What is your pet name?</option>
+	<option value="What is your favourite movie?">What is your favourite movie?</option>
+	<option value="What was the name of your first school?">What was the name of your first school?</option>	
+	</select>
+	</div>
+	
+	<div>
+	<textarea name="answer" id="ans" cols="30" rows="4" placeholder="Enter your answer here...."></textarea>
+	</div>
+	
+	<input type="reset" value="Reset">
+	<input type="submit" value="Submit">
+	
+	</form>
+	
+	<p>required tag isn't working in the tag except text=>input</p>
+	</body>
+</html>

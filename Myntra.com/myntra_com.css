@@ -1,0 +1,232 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: "Assistant", sans-serif;
+  max-width: 100%;
+  min-height: 100vh;
+  /*    overflow-x: hidden;*/
+}
+a {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+
+/*---------------------------------Navigation Bar-------------------------------------*/
+
+.navbar {
+  /* border: 2px solid black; */
+  height: 8rem;
+  width: 100%;
+  position: relative;
+  display: flex;
+  /*    justify-content: space-around;*/
+  align-items: center;
+  box-shadow: 0px 0.5px 10px lightgray;
+}
+.nav-left-section {
+  /* border: 2px solid blue; */
+  width: 17%;
+}
+.navbar .logo img {
+  width: 100%;
+  height: 100%;
+}
+.navbar .logo {
+  width: 60px;
+  margin: 0.8rem 1.5rem 0 1.6rem;
+}
+.navbar .nav-ul {
+  /*    border: 2px solid black;*/
+  width: 42%;
+  position: absolute;
+  margin: auto;
+  top: 2.5rem;
+  margin-left: 10.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-ul li a {
+  color: #282c3f;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: normal;
+}
+sup {
+  color: #ff3f6c;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.nav-right-section {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+.nav-search {
+  background-color: #f5f5f6;
+  /* border: 2px red solid; */
+  border-radius: 3px;
+  width: 250px;
+  /* margin-left: 66em; */
+  margin-left: 61%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.nav-right-section input {
+  width: 200px;
+  height: 40px;
+  border: none;
+  background-color: #f5f5f6;
+}
+.nav-search > i {
+  font-size: 1.4rem;
+}
+.nav-search .input {
+  width: 80px;
+  height: 50px;
+  background-color: #f5f5f6;
+}
+.nav-right-section .nav-links {
+  font-size: 1.5rem;
+  margin-left: 2.3rem;
+  text-align: center;
+  font-weight: 600;
+}
+.nav-right-section .nav-links > i {
+  font-size: 1.7rem;
+}
+.nav-right-section .nav-links > p {
+  font-size: 1.3rem;
+}
+.add-to-cart {
+  position: relative;
+}
+.cart-counter {
+  position: absolute;
+  top: 1rem;
+  right: 0.3rem;
+  color: white;
+  background-color: red;
+  padding: 0.2rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  display: none;
+}
+.cart-counter-js {
+  display: block;
+}
+/*-----------------------------------Navbar END----------------------------------------*/
+
+/*-----------------------------------Hero-Section-Start--------------------------------*/
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+}
+.hero-img {
+  margin: 45px 0 0 0;
+  width: 100%;
+  height: auto;
+  /*    border: 2px solid black;*/
+}
+
+/*------------------------------------Hero-Section-END--------------------------------*/
+
+/*--------------------------------Fixed-Bell-Icon-Start-------------------------------*/
+
+.bell-icon {
+  background-color: #1d85fc;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+}
+.bell-icon > i {
+  font-size: 2.3em;
+  padding: 0.45em 0.55em;
+}
+
+/*--------------------------------Fixed-Bell-Icon-END-------------------------------*/
+
+/*--------------------------------BRANDS SECTION START------------------------------*/
+
+div > h1 {
+  color: #3e4152;
+  font-size: 3.1rem;
+  margin: 7rem 0 7rem 3rem;
+  text-transform: uppercase;
+  word-spacing: normal;
+  letter-spacing: 0.5rem;
+}
+.medal-worthy-brands-images {
+  display: flex;
+  max-width: 100%;
+  height: auto;
+  /*    border: 2px solid red;*/
+}
+.medal-worthy-brands-images > div > img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.medal-worthy-brands-images > div {
+  width: 16.66%;
+  height: auto;
+}
+
+/*---------------------------------BRANDS SECTION END-------------------------------*/
+
+/*--------------------------------SHOP BY CATEGORY START----------------------------*/
+
+.flexbox {
+  /* border: 2px solid red; */
+  /* margin: 0 3.5rem 3.5rem 3.5rem; */
+  margin: auto auto;
+  /*    position: relative;*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1175px;
+}
+.flexbox > div {
+  width: 14.7%;
+  height: auto;
+  margin-bottom: 3rem;
+}
+.flexbox div img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.flexbox .last-images {
+  /*    border: 2px solid black;*/
+  /*    justify-self: center;*/
+  width: 35.7rem;
+  display: flex;
+
+  margin: 0 37rem;
+  gap: 2.8rem;
+  margin-bottom: 3rem;
+}
+
+/*--------------------------------SHOP BY CATEGORY END-------------------------------*/
+
+/*-----------------------------------FOOTER START------------------------------------*/
+
+footer {
+  background-color: #fafbfc;
+}

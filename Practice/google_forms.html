@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Forms</title>
+    <link rel="stylesheet" href="google_forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div class="content">
+       <h1>Google Forms</h1>
+       <p>Please ensure that the given information is 100% correct</p>
+       <p id="req">* Required</p>
+   </div>
+   <form action="file:///C:/Users/Sanju%20Bhati/Desktop/HTML/submit_page.html" onsubmit="return validateForm()" name="myForm">
+    <div class="content">
+        <label for="firstname">First Name: <sup>*</sup></label>
+        <input type="text" id="firstname" class="inbox" placeholder="Enter your name.." required>
+        <span class="error"></span>
+    </div>
+    <div class="content">
+        <label for="lastname">Family Name: <sup>*</sup></label>
+        <input type="text" id="lastname" class="inbox" placeholder="Enter your last name.." required>
+        <span class="error"></span>
+    </div>
+    <div class="content">
+        <label for="email">Email Address: <sup>*</sup></label>
+        <input type="text" id="email" class="inbox" placeholder="Enter your email.." required>
+        <span class="error"></span>
+    </div> 
+    <div class="content">
+        <label for="contact">Mobile Number: <sup>*</sup></label>
+        <input type="number" id="contact" class="inbox" placeholder="Mobile Number.." maxlength="6" required>
+        <span class="error"></span>
+    </div>
+    <div class="content">
+        <label for="">Gender: <sup>*</sup></label>
+        
+        <label for="male" style="display: inline">Male </label>
+        <input type="radio" id="male" class="gender" name="gender" value="male">
+        
+        <label for="female" style="display: inline" >Female </label>
+        <input type="radio" id="female" class="gender" name="gender" value="female">
+        <span class="error"></span>
+    </div>
+    <div class="content">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob">
+        <span class="error"></span>
+    </div>
+    <div class="content">
+        <label for="address">Address: <sup>*</sup></label>
+        <textarea name="textarea" id="address" cols="80" rows="5" placeholder="Enter your address.." required></textarea>
+        <span class="error"></span>
+    </div>
+    <div class="content">
+        <label for="city">City: <sup>*</sup></label>
+        <input type="text" id="city" class="inbox" placeholder="Enter your city.." required>
+        <span class="error"></span>
+    </div>
+    <div class="content">
+        <label for="pincode">Pincode: <sup>*</sup></label>
+        <input type="number" id="pincode" class="inbox" placeholder="Enter your city pincode.." maxlength="6" required style="width: 180px">
+        <span class="error"></span>
+    </div>
+    <div class="content">
+        <label for="qualification" style="margin-bottom: 8px">Qualification:</label>
+        <select name="qualification" id="qualification">
+            <option value="Matriculation">Matriculation</option>
+            <option value="High School">High School</option>
+            <option value="Graduation">Graduation</option>
+            <option value="Post Graduation">Post Graduation</option>
+            <option value="PhD">PhD</option>
+        </select>
+        <span class="error"></span>
+    </div>
+    <div class="content">
+        <label style="margin-bottom: 8px">Your Specialization: </label>
+	<div>
+	<label for="specs" class="specialization">Computer Science</label>
+	<input type="checkbox" name="specialization" class="spec" id="specs">
+	<br/>
+	<label for="spec1" class="specialization">Information Technology</label>
+	<input type="checkbox" name="specialization" class="spec" id="spec1">
+	<br/>
+	<label for="spec2" class="specialization">Cyber Security</label>
+	<input type="checkbox" name="specialization" class="spec" id="spec2">
+	<br/>
+	<label for="spec3" class="specialization">Computer Architecture</label>
+	<input type="checkbox" name="specialization" class="spec" id="spec3">
+	</div>
+    <span class="error"></span>
+    </div>
+    <div class="content">
+        <label for="password">Passcode: <sup>*</sup></label>
+        <input type="password" id="password" class="inbox" required>
+        <button id="show_pass">show</button>
+        <span class="error"></span>
+    </div>
+    <button type="reset">Reset</button>
+    <button>Submit</button>
+   </form>
+   <script src="google_forms.js"></script>
+</body>
+</html>

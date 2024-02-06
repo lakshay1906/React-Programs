@@ -1,0 +1,55 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    width:100%;
+    height: 100vh;
+    background-color: rgb  (230,230,230);
+}
+div
+{
+    display: inline-block;   
+}
+#navbar
+{
+    width: 100%;
+/*    height: 60px;*/
+    padding: 10px 2%;
+    background-color: white;
+}   
+#name
+{
+    margin-left: 80px;
+}
+h2
+{
+    color: blue;
+}
+#plus
+{
+    color: #ffc200;
+}
+#explore
+{
+    color: #9e9e9e;
+}
+input
+{
+    padding: 10px 50px 10px 15px;
+    width: 250px;
+    border-radius: 10px;
+    margin-left: 100px;
+    border: none;
+    background-color: rgba(230,230,230,0.7);
+}
+a
+{
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 80px;
+    color: black;
+}
+/*doubt in display attribute like when to use inline-block; */

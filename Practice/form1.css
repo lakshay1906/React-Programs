@@ -1,0 +1,32 @@
+form
+{
+    margin: 0 auto;
+    width:250px;
+}
+input, button
+{
+    margin-top: 8px;
+    border-radius: 20px;
+    border: none;
+}
+div
+{
+/*    background-color: white;*/
+    margin: 10px;
+    width: min-content;
+/*    padding: 0 20px;*/
+}
+label
+{
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+body
+{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
+}
+.specialization,
+{
+    display: inline;
+}

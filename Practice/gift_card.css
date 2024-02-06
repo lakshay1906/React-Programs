@@ -1,0 +1,98 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    width: 100%;
+    height: 100vh;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outerbox
+{
+    background-color: white;
+    height: 400px;
+    width: 270px;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 1s ease-out;
+}
+.btn
+{
+    display: flex;
+    margin-top: 5px;
+    margin-left: 6px;
+    padding: 2px 5px;
+    border-radius: 20px;
+    border-width: thin;
+    border-color: lightgray;
+    background-color: white;
+    color: darkgray;
+    font-weight: 600;
+}
+.text
+{
+    margin: 10px 10px;
+}
+.btn3
+{
+    align-self: center;
+    margin-top: 5px;
+    padding: 3px 5px;
+    border-radius: 10px;
+    border: 1px solid rgb(86, 86, 239);
+    background-color: rgb(196, 215, 255);
+    color: blue;
+}
+/* .upper_div
+{
+    position: absolute;
+    top: 0;
+    height: 400px;
+    width: 270px;
+    background-image: url(Cool-nature-backgrounds.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: inherit;
+    transition: all 1s ease-out;
+} */
+/* .outerbox:hover .upper_div
+{
+    filter: opacity(0);
+} */
+/* .photo
+{
+    height: 400px;
+    width: 270px;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    background-image: url(Cool-nature-backgrounds.jpg);
+} */
+/* .content
+{
+    margin-top: 160px;
+} */
+/* .outerbox:hover*/ .photo
+{
+    height: 150px;
+    width: 260px;
+    margin: 6px;
+    border-radius: 10px;
+    background-image: url(Cool-nature-backgrounds.jpg);
+    background-size: cover;
+    transition: all 1s ease-out;
+}
+.outerbox:hover .photo
+{
+    transform: scale(4.3);
+}

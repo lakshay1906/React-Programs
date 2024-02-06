@@ -1,0 +1,82 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+html
+{
+    font-size: 8px;
+}
+body
+{
+    background: rgb(148,187,233);
+    background: radial-gradient(circle, rgba(148,187,233,1) 35%, rgba(238,174,202,1) 100%);
+/*    background-color: rgba(210, 210, 252,0.5);*/
+}
+.content
+{
+    background-color: white;
+    margin: 1.3rem 2rem;
+    padding: 2rem;
+    border-radius: 1.5rem;
+}
+label
+{
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.9rem;
+}
+input, textarea, option
+{
+    border: none;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    font-family: 'Roboto', sans-serif;   
+    font-size: 1.5rem;
+    border-radius: 1.5rem;
+    background-color: rgba(0,0,0,0.07);
+}
+sup
+{
+    color: red;
+}
+.specialization
+{
+    margin: 1rem;
+    padding: 0.5rem;
+    display: inline;
+}
+.spec
+{
+    margin: 0.5rem;
+}
+p
+{
+    font-size: 1.8rem;
+    padding-top: 1.5rem;
+    padding-bottom: 0px;
+}
+#req
+{
+    font-size: 1.8rem;
+    padding-top: 0px;
+    color: red;
+}
+.inbox
+{
+    width: 20rem;
+}
+button
+{
+    margin: 2rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    padding: 1.2rem 1.5rem;
+    font-size: 2rem;
+    color: white;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    font-weight: 600;
+}

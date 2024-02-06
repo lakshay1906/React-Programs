@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet"> 
+    <style>
+        html{
+            font-family: 'Playfair Display', serif;
+        }
+        body{
+            width: 99%;
+            height: 95vh;
+            background-image: url(preview-happy-love-emoji-3d-wallpaper\,-download-free-amazing-high-resolution-backgrounds\,-images-1636366955.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div{
+            width: 600px;
+            height: 250px;
+            font-size: xx-large;
+            padding: 20px 50px;
+            font-weight: 600;
+            border: none;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #btn{
+            position: absolute;
+            bottom: 70px;
+            background-color: transparent;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px black;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            width: 100px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="joke">Joke will appear here</div>
+    <button id="btn" onclick="gettingJoke()">Next</button>
+    <script src="tell_me_a_joke.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+       <link rel="stylesheet" href="weather_api.css">
+  </head>
+  
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">My Weather</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5500/javascript/weather_api.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contact Us</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item">Gmail:- lbhati020@gmail.com</a></li>
+                  <li><a class="dropdown-item" href="#">Mobile No:- 9813173434</a></li>
+                  <!-- <li><hr class="dropdown-divider"></li> -->
+                  <!-- <li><a class="dropdown-item" href="#">Banglore</a></li> -->
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Locations</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item" onclick="checkweather(delhi)">Delhi</li>
+                  <li><a class="dropdown-item" onclick="checkweather(faridabad)">Faridabad</a></li>
+                  <!-- <li><hr class="dropdown-divider"></li> -->
+                  <li><a class="dropdown-item" onclick="checkweather(gurugram)">Gurugram</a></li>
+                </ul>
+              </li>
+              <!-- <li class="nav-item"></li> -->
+            </ul>
+              <input class="form-control me-2" id="search-input" type="search" placeholder="Enter Location" aria-label="Search">
+              <button class="btn btn-outline-success" id="search-btn" type="submit">Search</button>
+          </div>
+        </div>
+    </nav>
+
+      <!-- ------------------------------------------------------------------------------------------------------------ -->
+
+    <div class="card" style="width: 18rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title"><span id="card-location"></span> Weather</h5>
+          <p class="card-text" id="quote"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item output"><span class="underline" >Max-temp:</span><span id="max-temp"> </span></li>
+          <li class="list-group-item output"><span class="underline">Min-temp:</span><span id="min-temp"> </span></li>
+          <li class="list-group-item output"><span class="underline">Humidity:</span><span id="humidity"> </span></li>
+          <li class="list-group-item output"><span class="underline">Wind-Speed:</span><span id="wind_speed"> </span></li>
+          <li class="list-group-item output"><span class="underline">Wind-Degrees:</span><span id="wind_degrees"> </span></li>
+          <li class="list-group-item output"><span class="underline">Cloud-Pact:</span><span id="cloud_pct"> </span></li>
+        </ul>
+        <div class="card-body" id="flex">
+           <span><span class="underline">Sunrise:</span><span id="sunrise"> 06:29</span></span>
+           <span><span class="underline">Sunset:</span><span id="sunset"> 07:03</span></span>
+        </div>
+      </div>
+      <div id="loading" class="over-the-page"><div id="loader" class="loader"></div></div>
+
+      <!-- --------------------------------------------------------------------------------------------------------- -->
+      
+    <script src="weather_api.js"></script>
+</body>
+</html>

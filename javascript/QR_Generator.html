@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <link rel="stylesheet" href="QR_Generator.css">
+    <link rel="shortcut icon" href="QRfavicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>QR Code Generator</h1>
+    <div class="container">
+        <input type="text" placeholder="Enter text or link">
+        <div id="image-container">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Lakshay QR Code Scanner Project" alt="QR Image">
+        </div>
+        <button>Enter</button>
+    </div>
+    <script src="QR_Generator.js"></script>
+</body>
+</html>

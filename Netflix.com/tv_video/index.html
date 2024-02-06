@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playing with position</title>
+    <style>
+        body
+        {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .img{
+            position: relative;
+            /* top: 50px; */
+        }
+        .img> img{
+            width: 100%;
+            height: 100%;
+        }
+        .img> .video
+        {
+            position: absolute;
+            top: 90px;
+            left: 80px;
+            z-index: -1;
+        }
+        .video video
+        {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div style="border: 2px solid white; display: flex; align-items: center; justify-content: center;">
+        <div class="img" style="border: 2px solid royalblue">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png">
+            <div class="video" style="border: 2px dashed;"><video src="/Netflix.com/video-tv-in-0819 (1).m4v" autoplay muted loop></video></div>
+        </div>
+    </div>
+</body>
+</html>

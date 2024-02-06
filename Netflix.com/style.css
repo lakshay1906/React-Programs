@@ -1,0 +1,446 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html
+{
+    font-size: 10px;
+    font-family: sans-serif;
+}
+body{
+    background-color: black;
+}
+a{
+    color: inherit;
+}
+ul li{
+    list-style: none;
+}
+h1{
+    color: white;
+}
+.hero-image
+{
+    width: 100%;
+    height: 120vh;
+    background-image: url(banner_image.jpg);
+    background-position: center bottom; /*????????????????*/
+    background-size: max(1500px,100vw);
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.hero-image .box
+{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    filter: opacity(0.64);
+    position: relative;
+}
+.hero-image nav
+{
+    width: 93vw;
+    /* border: 2px solid blue; */
+    position: absolute;
+    top: 2.2rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.hero-image nav> svg
+{
+    width: 15rem;
+}
+.hero-image .buttons
+{
+    /* width: 20.5rem; */
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.english, .hero-image .buttons .sign-in
+{
+    font-size: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    color: white;
+    background-color: rgba(23, 23,23, 0.7);
+    border: 1px solid rgba(211, 211, 211, 0.445);
+    border-radius: 4px;
+    font-weight: bold;
+    display: flex;
+}
+.english> #first{
+    margin: 0 0.4rem 0 0.8rem;
+}
+.english> select
+{
+    background-color: inherit;
+    font-size: inherit;
+    color: inherit;
+    border: none;
+    padding-left: 0.5rem;
+}
+.english> select> option
+{
+    width: inherit;
+    background-color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0 5rem;
+}
+.hero-image .buttons .sign-in
+{
+    border: none;
+    background-color: #e50914;
+}
+.hero-image .buttons .sign-in:hover
+{
+    background-color: #c11119;
+}
+.hero-content
+{
+    position: absolute;
+    bottom: 20rem;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.hero-content :first-child
+{
+    /* padding: 0 2rem; */
+    margin: auto 3.5rem;
+    font-size: 4.8rem;
+    font-weight:900;
+}
+.hero-content :nth-child(2)
+{
+    font-size: 2.4rem;
+    margin: 2rem 3.5rem 0 3.5rem;
+}
+.hero-content :nth-child(3)
+{
+    font-size: 2rem;
+    margin: 2rem 3.5rem 0 3.5rem;
+}
+.hero-image>.hero-content
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+form
+{
+    position: absolute;
+    bottom: 12rem;
+}
+form>input
+{
+    height: 5.6rem;
+    color: white;
+    font-size: 1.8rem;
+    /* font-weight: 600; */
+    padding: 0.5rem 11rem 0.5rem 2rem;
+    margin-right: 1rem;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    background-color: rgba(23, 23,23, 0.7);
+}
+form> button
+{
+    height: 5.6rem;
+    font-size: 2.35rem;
+    padding: 0.2rem 4.5rem 0.3rem 3rem;
+    color: white;
+    background-color: #e50914;
+    /* font-weight: 600; */
+    border: none;
+    border-radius: 3px;
+    position: relative;    
+}
+form> button:hover
+{
+    background-color: #c11119;
+}
+form>button>svg
+{
+    /* height: 19px; */
+    position: absolute;
+    top: 1.2rem;
+}
+.seperator
+{
+    background-color: #232323;
+    height: 0.8rem;
+}
+section
+{
+    background-color: black;
+    width: 100%;
+}
+section .flex
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100% ;
+}
+.flex .flex-content
+{
+    width: 50%;
+    margin-bottom: 6rem;
+}
+.flex1 .flex-content
+{
+    width: 50%;
+    /* border: 2px lightsteelblue dashed; */
+    margin-top: 6rem;
+}
+section .flex-content :first-child
+{
+    font-size: 4.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: white;
+    display:block;
+}
+section .flex-content :nth-child(2)
+{
+    font-size: 2.4rem;
+    color: white;
+}
+section .right
+{
+    width: 49.8rem;
+    margin: 0 0 6rem 0;
+    position: relative;
+    /* border: 2px dashed white; */
+}
+section .right>img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+.right> .video
+{
+    width: 38rem;
+    height: 21rem;
+    position: absolute;
+    top: 7.5rem;
+    left: 5.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section .right video
+{
+    width: 100%;
+    height: 100%;
+}
+
+.mobile-img
+{
+    position: relative;
+    margin: 6rem 0;
+    /* border: 2px solid white; */
+}
+.mobile-img> img
+{
+    width: 50rem;
+}
+.mobile-img> .over-the-mobile
+{
+    border: 2px solid #232323;
+    border-radius: 15px;
+    width: 35rem;
+    height: 10rem;
+    position: absolute;
+    bottom: 2.2rem;
+    right: 8rem;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.mobile-img> .over-the-mobile>img
+{
+    width: 5.6rem;
+    margin: 1rem 1.5rem;
+}
+.over-the-mobile :nth-child(2)
+{
+    color: white;
+    font-size:  1.5rem;
+    font-weight: bold;
+}
+.over-the-mobile :nth-child(2)> :nth-child(2)
+{
+    color: #0071eb;
+    font-weight: 500;
+}
+.flex1
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.frequently-asked-questions
+{
+    background-color: black;
+}
+.frequently-asked-questions> h1{
+    color: white;
+    text-align: center;
+    font-size: 4.8rem;
+    font-weight: 900;
+    margin: 6rem 0 2.5rem;
+}
+.frequently-asked-questions> .questions
+{
+    color: white;
+    width: 95%;
+    height: 8rem;
+    background-color: #232323;
+    margin: 1rem auto;
+    transition: all 0.05s ease-in-out;
+}
+.questions ul{
+    width: 100%;
+    height: 100%;
+    /* border: #e50914 2px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.questions ul li{
+    font-size: 2.4rem;
+    margin: 0 2.5rem;
+    /* border: 1px solid white; */
+}
+.questions ul li:nth-child(2)
+{
+    color: #969696;
+    font-size: 5.5rem;
+    font-weight: lighter;
+}
+.questions:hover
+{
+    background-color: #414141;
+}
+.form
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 7rem;
+}
+.form> h1{
+    text-align: center;
+    font-weight: 400 ;
+    margin: 4rem 0 1.8rem 0;
+}
+.form> form
+{
+    position: unset;
+    margin: auto;
+}
+footer{
+    margin-left: 3rem;
+    margin-bottom: 7.5rem;
+}
+footer h2
+{
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+    /* font-size: ; */
+    color: #b3b3b3;
+}
+.links
+{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid white; */
+}
+.links> ul >li{
+    color: #b3b3b3;
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+}
+footer> .english
+{
+    width: 12rem;
+    margin-top: 1rem;
+}
+footer .text
+{
+    color: #b3b3b3;
+    font-size: 1.4rem;
+    margin-top: 2.5rem;
+}
+@media (width > 320px) and (width <=374px)
+{
+    html
+    {
+        font-size: 4px;
+    }
+}
+@media (width > 374px) and (width <=424px)
+{
+    html
+    {
+        font-size: 6px;
+    }
+}
+@media (width > 424px) and (width <=767px)
+{
+    html
+    {
+        font-size: 6px;
+    }
+}
+@media (width > 767px) and (width <= 1023px)
+{
+    html
+    {
+        font-size: 7px;
+    }
+}
+@media (width > 1023px) and (width <=1439px)
+{
+    html
+    {
+        font-size: 8px;
+    }
+}
+@media (width > 1439px) and (width <=2559px)
+{
+    html
+    {
+        font-size: 11.5px;
+    }
+}
+@media (width > 2559px)
+{
+    html
+    {
+        font-size: 18px;
+    }
+}

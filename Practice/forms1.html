@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Forms</title>
+	<link rel="stylesheet" href="form1.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+        
+	<form action="">
+	    <h2>My feedback form</h2>
+	<div>
+	<label for="name">First Name: </label>
+	<input type="text" id="name" name="userName" value="">
+	</div>
+	
+	<div>
+	<label for="lname">Last Name: </label>
+	<input type="text" id="lname" name="lastName">
+	</div>
+	
+	<div>
+	<label for="email">Email: </label>
+	<input type="email" id="email" name="userEMail">
+	</div>
+	
+	<div>
+	<label for="contact">Mobile: </label>
+	<input type="number" id="contact" name="contactNumber">
+	</div>
+	
+	<div>
+	<label>Gender: </label>
+	<label for="male">Male</label>
+	<input type="radio" id=male class="gender" name="Gender" value="Male">
+	<label for="female">Female</label>
+	<input type="radio" id=female class="gender" name="Gender" value="Female">
+	</div>
+	
+	<div>
+	<label for="dob">Date of Birth: </label>
+	<input type="date" id="dob" name="dateOfBirth">
+	</div>
+	
+	<div>
+	<label for="add">Address: </label>
+	<br/>
+	<textarea name="address" id="add" cols="30" rows="4"></textarea>
+	</div>
+	
+	<div>
+	<label for="city">City: </label>
+	<input type="text" id="city" name="City">
+	</div>
+	
+	<div>
+	<label for="pin">Address pin: </label>
+	<input type="number" id="pin" name="pinCode">
+	</div>
+	
+	<div>
+	<label for="qualification">Qualification: </label>
+	<select name="qualification" id="qualification">
+	<option value="matriculation">Matriculation</option>
+	<option value="highSchool">High School</option>
+	<option value="graduation">Graduation</option>
+	<option value="postGraduation">Post Graduation</option>
+	</select>
+	</div>
+	
+	<label>Your Specialization: </label>
+	<div>
+	<label for="specs">Computer Science</label>
+	<input type="checkbox" name="specialization" class="specialization" id="specs">
+	<br/>
+	<label for="spec1">Information Technology</label>
+	<input type="checkbox" name="specialization" class="specialization" id="spec1">
+	<br/>
+	<label for="spec2">Cyber Security</label>
+	<input type="checkbox" name="specialization" class="specialization" id="spec2">
+	<br/>
+	<label for="spec3">Computer Architecture</label>
+	<input type="checkbox" name="specialization" class="specialization" id="spec3">
+	</div>
+	
+	<div>
+	<label for="pass">Password: </label>
+	<input type="password" id="pass" name="password">
+	</div>
+	
+	<button type="reset">Reset</button>
+	<button>Register</button>
+	</form>
+	
+</body>
+</html>

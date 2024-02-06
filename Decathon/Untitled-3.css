@@ -1,0 +1,256 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html
+{
+    max-width: 1175px;
+}
+.firstheader
+{
+    background-color: rgba(31,31,31,1);
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a
+{
+    color: white;
+    text-decoration: none;
+}
+.signin
+{
+    color: white;
+    position: absolute;
+    right: 1rem;
+}
+.icontext
+{
+    font-size: 17px;
+    font-weight: 100;
+}
+.nav-links
+{
+    font-size: 1.1rem;
+}
+.secondheader
+{
+    background-color: white;
+    height: 70px;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.categories
+{
+    position: relative;
+    bottom: 60px;    
+}
+.logoimage
+{
+    height: 50px;
+    width: 200px;
+    background-image: url(logo.png);
+    background-size: cover;
+    position: relative;
+    left: 20px;
+}
+.nav-links-1
+{
+    display: flex;
+    gap: 20px;
+    position: relative;
+    left: 25px;
+}
+li
+{
+    list-style: none;
+}
+li a
+{
+    color: black;
+}
+.search-button
+{
+    font-size: 1rem;
+    padding: 5px 10px;
+    position: relative;
+    left: 160px;
+    background-color: transparent;
+    border: solid lightgray 1px;
+}
+.shopping-button
+{
+    -webkit-clip-path: polygon(16% 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(16% 0, 100% 0, 100% 100%, 0% 100%);
+    background-color: #cbfb00;
+    padding: 25px 30px;
+    width: 25px;
+    height: 8px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*----------------------------------navbar end ----------------------------------*/
+
+.text h1
+{
+    font-size:50px;
+    font-weight: 800;
+}
+.text p
+{
+    font-size: 22px;
+    font-weight: 600;
+}
+/*
+.shop-now
+{
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: 600;
+}
+.shop-now:hover
+{
+    background-color: black;
+    color: white;
+}
+*/
+.message-icon i
+{
+    font-size: 40px;
+    padding: 10px;
+/*    border: 1px solid black;*/
+    border-radius: 50px;
+    color: #161616;
+    background-color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.text
+{
+    position: relative;
+    z-index: 1;
+    bottom: 270px;
+    color: white;
+    text-align: center;
+}
+.text h1
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.text p
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.text button
+{
+    position: relative;
+    top: 10px;
+    padding: 10px 12px;
+    font-size: 15px;
+/*    font-family: 'Montserrat', sans-serif;*/
+    font-weight: 600;
+    border: none;
+}
+.text button:hover
+{
+    background-color: black;
+    color: white;
+}
+
+/*------------------------------Hero Image over-------------------------------*/
+
+div img
+{
+/*    position: absolute;*/
+    width: 25%;
+    height: auto;
+    
+}
+.categories
+{
+    display: flex;
+    width: 1120px;
+    height: 100%;
+    position: relative;
+    left: 12px;
+    gap: 11px;
+    bottom: 80px;
+}
+#img1:hover, #img2:hover, #img3:hover, #img4:hover
+{
+    filter: blur(2px);
+}
+.categories-text
+{
+    display: none;
+    justify-content: space-around;
+    position:relative;
+    right: 50px;
+    font-size: 25px;
+}
+
+
+.cycling-playground .img
+{
+    width: 1175px;
+    height: 500px;
+}
+.img img
+{
+    width: 100%;
+    height: 100%;
+}
+.img .content
+{
+    text-align: center;
+    position: relative;
+    bottom: 200px;
+}
+.content .shop-now
+{
+    background-color: white;
+    color: #464646;
+    border: none;
+}
+.content .learn-more
+{
+    background-color: transparent;
+    color: white;
+}
+.content .shop-now:hover
+{
+    background-color: #464646;
+    color: white;
+}
+.content .shop-now:active
+{
+    background-color: black;
+    color: white;
+}
+.content .learn-more:hover
+{
+    color: #464646;
+    background-color: white;
+}
+.content .learn-more:active
+{
+    color: black;
+    background-color: white;
+}

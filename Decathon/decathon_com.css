@@ -1,0 +1,771 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html
+{
+    max-width: 1175px;
+    font-family: 'Montserrat';
+}
+body
+{
+    max-width: 1175px;
+}
+/*-----------------------------first header start----------------------------------*/
+
+.firstheader
+{
+    background-color: rgba(31,31,31,1);
+    height: 30px;
+    max-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+/*    border: 2px solid red;*/
+    overflow: hidden;
+}
+a
+{
+    color: white;
+    text-decoration: none;
+}
+.signin
+{
+    color: white;
+    position: absolute;
+    right: 1rem;
+}
+.icontext
+{
+    font-size: 17px;
+    font-weight: 100;
+}
+
+/*-----------------------------first header over-----------------------------------*/
+
+/*-----------------------------Second header Start---------------------------------*/
+
+.secondheader
+{
+    background-color: white;
+    height: 70px;
+    max-width: 100vw;
+    position: sticky;
+    top: 1px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+/*    border: 2px solid green;*/
+    overflow: hidden;
+}
+.nav-links
+{
+    font-size: 1.1rem;
+}
+.categories
+{
+    position: relative;
+    bottom: 60px;    
+}
+.logoimage
+{
+    height: 50px;
+    width: 200px;
+    background-image: url(logo.png);
+    background-size: cover;
+    position: relative;
+    left: 20px;
+}
+.nav-links-1
+{
+    display: flex;
+    gap: 20px;
+    position: relative;
+    left: 25px;
+}
+li
+{
+    list-style: none;
+}
+li a
+{
+    color: black;
+}
+.search-button
+{
+    font-size: 1rem;
+    padding: 5px 10px;
+    position: relative;
+    left: 135px;
+    background-color: transparent;
+    border: solid lightgray 1px;
+}
+.shopping-button
+{
+    -webkit-clip-path: polygon(16% 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(16% 0, 100% 0, 100% 100%, 0% 100%);
+    background-color: #cbfb00;
+    padding: 25px 30px;
+    width: 25px;
+    height: 8px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*----------------------------------navbar end ----------------------------------*/
+
+/*-----------------------------Hero Section Start----------------------------------*/
+
+.hero-section
+{
+/*    border: 2px solid red;*/
+    max-height: 662px;
+    max-width: 100vw;
+    overflow: hidden;
+}
+.text h1
+{
+    font-size:50px;
+    font-weight: 800;
+}
+.text p
+{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.text
+{
+    position: relative;
+    z-index: 1;
+    bottom: 270px;
+    color: white;
+    text-align: center;
+}
+.text h1
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.text p
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.text button
+{
+    position: relative;
+    top: 10px;
+    padding: 10px 12px;
+    font-size: 15px;
+/*    font-family: 'Montserrat', sans-serif;*/
+    font-weight: 600;
+    border: none;
+}
+.text button:hover
+{
+    background-color: black;
+    color: white;
+}
+
+/*-----------------------------Hero Section Over----------------------------------*/
+
+/*--------------------------categories Section Start------------------------------*/
+
+.categories
+{
+    display: flex;
+    justify-content: space-between;
+    width: 1160px;
+    max-width: 100vw;
+    height: 100%;
+    position: relative;
+    left: 12px;
+    margin-top: 85px;
+/*    border: 2px solid green;*/
+    overflow: hidden;
+}
+div img
+{
+/*    position: absolute;*/
+    width: 25%;
+    height: auto;
+    
+}
+.img-container img
+{
+    height: 100%;
+    width: 100%;
+}
+.img-container
+{
+    width: 24.3%;
+    height: auto;
+}
+#img1:hover, #img2:hover, #img3:hover, #img4:hover
+{
+/*    filter: blur(2px);*/
+    cursor: pointer; 
+}
+.categories-text
+{
+    display: none;
+    justify-content: space-around;
+    position:relative;
+    right: 50px;
+    font-size: 25px;
+}
+
+/*--------------------------categories Section Over------------------------------*/
+
+/*--------------Fixed message icon in right bottom corner Start------------------*/
+        
+.message-icon i
+{
+    font-size: 35px;
+    padding: 10px;
+    border-radius: 50px;
+    color: black;
+    background-color: #bbbbbb;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+        
+/*--------------Fixed message icon in right bottom corner Over-------------------*/
+        
+/*----------------------Cycling-playground Start---------------------------------*/
+
+.cycling-playground
+{
+/*    margin-bottom: 100px;*/
+    max-height: 403px;
+    max-width: 100vw;
+/*    border: 2px solid red;*/
+    overflow: hidden;
+}
+.cycling-playground .img
+{
+    padding: 200px 50px;/*??????????????????????????????????????????????*/
+    height: auto;
+    background-image: url(23-Fall-HP-Banner-Bikes-desktop_1920x701.jpeg);
+    background-size: cover;
+    position: relative;
+/*    bottom: 35px;*/
+    z-index: -2;
+    filter: brightness(80%);
+}
+.cycling-playground .content
+{
+    text-align: center;
+    position: relative;
+    bottom: 330px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+.content h1
+{
+    font-weight: 700;
+}
+.content p, .content .buttons
+{
+    position: relative;
+    top: 15px;
+}
+.content button
+{
+    position: relative;
+    top: 25px;
+    padding: 15px;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.content .shop-now
+{
+    color: #464646;
+    background-color: white;
+    border: none;
+    position: relative;
+    right: 5px;
+}
+.content .learn-more
+{
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    font-weight: 600;
+    position: relative;
+    left: 5px;
+}
+
+.content .shop-now:hover
+{
+    background-color: #464646;
+    color: white;
+    
+}
+.content .shop-now:active
+{
+    background-color: black;
+    color: white;
+}
+.content .learn-more:hover
+{
+    color: #464646;
+    background-color: white;
+}
+.content .learn-more:active
+{
+    color: black;
+    background-color: white;
+}
+
+/*--------------------------------cycling playground over-----------------------*/
+
+/*---------------------who-we-are section Start---------------------------------*/
+
+.who-we-are
+{
+    position: relative;
+    z-index: -1;
+    margin-top: 50px;
+    max-width: 100%;
+/*    border: 2px solid green;*/
+}
+.who-we-are h2
+{
+    margin-bottom: 15px;
+    position: relative;
+    left: 12px;
+    text-decoration: 4px underline #cbfb00;
+/*    margin-bottom: 10px;*/
+}
+.who-we-are .images
+{
+    display: flex;
+    justify-content: space-evenly;
+    width: 1170px;
+    height: 23rem;
+/*    border: 2px solid black;*/
+/*    overflow: hidden;*/        /*????why the text isn't included in the parent div????*/
+}
+.img1, .img2, .img3
+{
+    width: 32%;
+    height: auto;
+}
+.images img
+{
+    width: 100%;
+    height: 100%;
+}
+.images p
+{
+    font-size: 20px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+.images a
+{
+    color: #007dbc;
+}
+.images .learnmore
+{
+    position: relative;
+    top: 10px;
+    z-index: 2;
+}
+.images .learnmore:hover
+{
+    color: black;
+}
+/*active state isn't working?????????????????????????????????????????????????*/
+
+/*----------------------who-we-are section Over--------------------------------*/
+
+/*---------------------create account section Start----------------------------*/
+
+.welcome-sec
+{
+    margin-top: 90px;
+    max-width: 100vw;
+    border-top: 10px solid #f3f3f3;
+    border-bottom: 10px solid #f3f3f3;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 8px;
+    z-index: -1;
+/*    border: 2px solid red;*/
+    overflow: hidden;
+}
+.welcome-sec .content
+{
+    width: 770px;
+    height: 75px;
+    display: flex;
+/*    border: 2px solid black;*/
+    justify-content: space-evenly;
+/*    align-items: center;*/
+    font-size: 1.3rem;
+    position: relative;
+    top: 10px;
+}
+.content a
+{
+    color: #007dbc;
+}
+.text2
+{
+    color: #828282;
+}
+.text3
+{
+    font-weight: 800px;
+}
+
+/*---------------------create account section Over----------------------------*/
+
+/*---------------------------Shop all sports Start----------------------------*/
+
+.shop-sports
+{
+/*    border: 2px solid red;*/
+    position: relative;
+    top: 30px;
+    max-width: 100vw;
+    z-index: -1;
+    overflow: hidden;
+}
+.shop-sports h2
+{
+    position: relative;
+    left: 12px;
+    top: 5px;
+    text-decoration: 3px underline #cbfb00;
+    font-size: 1.25rem;
+    font-weight: bolder;
+}
+.sports
+{
+    margin-top: 20px;
+}
+.shop-sports .sports
+{
+/*    border: 2px solid blue;*/
+    display: flex;
+    flex-wrap: wrap;
+}
+.sports .items
+{
+    width: 32.2%;
+    height: 70px;
+    margin: 2.5px 6px;
+    position: relative;
+    left: 4px;
+    background-color: #f3f3f3;
+/*    border: 1px solid black;*/
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+.sports .items i
+{
+    margin: 0 20px;
+}
+
+/*---------------------------Shop all sports Start----------------------------*/
+
+/*---------------------------About section Start----------------------------*/
+
+.about-sec
+{
+    max-width: 100vw;
+    height: 610px;
+    background-color: #f3f3f3;
+    position: relative;
+    top: 42px;
+    display: flex;
+    z-index: -1;
+/*    border: 2px solid green;*/
+    overflow: hidden;
+}
+.about-sec .left-sec
+{
+    width: 47%;
+    position: relative;
+    left: 28px;
+    top: 75px;
+    height: 400px;
+/*    border: 2px solid red;*/
+}
+.about-sec .logo-img
+{
+    width: 210px;
+    height: 55px;
+    color: #1f1f1f;
+/*    border: 2px solid black;*/
+}
+.left-sec .logo-img > img
+{
+    width: 100%;
+    height: 100%;
+}
+.about-sec .left-sec h2
+{
+    font-size: 1.2rem;
+    position: relative;
+    top: 40px;
+    color: #1f1f1f;
+}
+.about-sec .left-sec > p
+{
+    position: relative;
+    top:50px;
+    font-size: 1.1rem;
+}
+.img > img
+{
+    width: 100%;
+    height: 100%;
+}
+.about-sec .left-sec .img
+{
+    position: relative;
+    top: 85px;
+    width: 530px;
+    height: 200px;
+}
+.about-sec .right-sec
+{
+    width: 41.3%;
+    position: relative;
+    right: 0px;
+    left: 110px;
+    top: 75px;
+    height: 400px;
+/*    border: 2px solid red;*/
+}
+.about-sec .right-sec h2
+{
+    font-size: 1.2rem;
+    color: #1f1f1f;
+}
+
+.about-sec .right-sec .boxes
+{
+/*    border: 2px solid blue;*/
+    position: relative;
+    top: 22px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    counter-reset: num;
+}
+.boxes .items
+{
+/*    border: 2px solid black;*/
+    width: 100%;
+    height: 85px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.right-sec .boxes .items::before
+{
+    counter-increment: num;
+    content: counter(num);
+    padding: 10px 15px;
+    border-radius: 50%;
+    background-color: #cbfb00;
+    border: 10px solid white;
+    position: absolute;
+    left: -25px;
+    color: #007dbc;
+    font-weight: bolder;
+    font-size: 1.1rem;
+}
+.items .svg img
+{
+    width: 100%;
+    height: 100%;
+}
+.items .svg
+{
+    width: 50px;
+    height: 50px;
+    margin: 20px 20px 20px 50px;
+/*    border: 2px solid green;*/
+}
+.items h3, .items p
+{
+    margin: 5px 0px;
+}
+
+/*---------------------------About section Start----------------------------*/
+
+/*--------------------------------Footer Start------------------------------*/
+
+footer
+{
+/*    border: 2px solid red;*/
+    width: 100%;
+    max-width: 100vw;
+    height: 450px;
+    background-color: #1f1f1f;
+    border-top: 6px solid #007dbc;
+    overflow: hidden;
+}
+footer .flex
+{
+/*    border: 2px dashed yellow;*/
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 60px;
+}
+footer .flex .left-sec
+{
+    position: relative;
+    margin-left: 28px;
+/*    border: 2px solid white;*/
+    width: 53%;
+    height: 260px;
+    display: flex;
+    justify-content: space-between;
+}
+.left-sec .list
+{
+/*    border: 2px solid lightgreen;*/
+    width: 180px;
+}
+.left-sec li
+{
+    font-size: 0.7rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.left-sec li a
+{
+    color: white;
+    font-weight: 900;
+}
+.left-sec li a:hover
+{
+    color: #007dbc;
+}
+.flex > .right-sec
+{
+    height: 170px;
+    width: 38.5%;
+    margin-left: 28px;
+/*    border: 2px solid red;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+/*    background-color: red;*/
+}
+.flex .right-sec h1
+{
+    font-size: 1.5rem;
+    color: white;
+}
+.flex .right-sec p
+{
+    color: white;
+    font-size: 0.8rem;
+}
+.flex .right-sec p a
+{
+    color: #007dbc;
+    text-decoration: underline;
+}
+.flex .right-sec form
+{
+    display: flex;
+    width: 100%;
+}
+.flex .right-sec form input
+{
+    height: 60px;
+    width: 80%;
+    font-size: 1.25rem;
+    padding-left: 15px;
+    border: none;
+}
+.flex .right-sec form button
+{
+    width: 20%;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: white;
+    background-color: #007dbc;
+    border: none;
+}
+footer .logo
+{
+    width: 12%;
+    height: 1.5rem;
+    position: relative;
+    left: 28px;
+    top: 70px;
+    display: flex;
+    justify-content: space-between;
+/*    border: 1px solid white;*/
+    font-size: 1.3rem;
+}
+footer .copyright
+{
+    color: #bbbbbb;
+    font-size: 0.7rem;
+    position: relative;
+    top: 50px;
+    left: 220px;
+}
+footer .countries
+{
+    position: relative;
+    top: 35px;
+    left: 880px;
+}
+.countries p
+{
+    font-size: 0.7rem;
+}
+.countries .img img
+{
+    width: 100%;
+    height: 100%;
+}
+.countries .img
+{
+    width: 15px;
+    height: 12px;
+    position: relative;
+    left: 230px;
+    bottom: 17px;
+}
+
+/*----------------------The above css is for laptop size screen-----------------------*/
+
+/*--------------------------------------Media Query----------------------------------*/
+
+@media (min-width: 426px) and (max-width: 768px)
+{
+    body
+    {
+        background-color: aqua;
+    }
+}
+
+/*---------------------------------------THE END-------------------------------------*/

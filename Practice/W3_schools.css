@@ -1,0 +1,134 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+ul
+{
+    display: inline-block;
+}
+div:first-child li
+{
+    display: inline-block;
+    position: relative;
+    padding: 15px;
+    left: 20px;
+    top: -5px;
+    font-size: 19px;
+    margin left: 50px;
+    margin: 0 16px;
+    font-family: "Source Sans Pro Regular", sans-serif;
+}
+div:first-child li:hover
+{
+    color: white;
+    background-color: #029769;
+    border-radius: 8px;
+}
+div:nth-child(2) li
+{
+    display: inline-block;
+    position: relative;
+    margin: 0 15px;
+    font-family: "Source Sans Pro Regular", sans-serif;
+}
+img{
+    width: 42px;
+    height: 40px;
+    position: relative;
+    left: 20px;
+    top: 10px;
+}
+input
+{
+    width: 150px;
+    padding: 10px 40px 10px 15px;
+    font-style: italic;
+    font-size: 18px;
+    position: relative;
+    top: -5px;
+    left: 50px;
+    border: solid 0.5px lightgray;
+    border-radius: 25px;
+/*    margin: 0 0 20px 100px;*/
+}
+input:focus
+{
+    border: 3px #04aa6d solid;
+}
+header:first-child
+{
+/*    background-color: lightgray;*/
+    height: 60px;
+    position:relative;
+/*    why when I comment the position the button get invisible*/
+}
+/*
+header:nth-child(2)
+why this is not working
+{
+    background-color: black;
+    height: 50px;
+}
+*/
+#div2
+{
+    color: white;
+    background-color: #282A35;
+    position: relative;
+    top: -2px;
+    height: 35px;
+}
+/*
+#div ul
+{
+    position: relative;
+    top: 50px;
+}
+*/
+#ul2
+{
+    position: relative;
+    top: 8px;
+}
+#ul2:first-child
+{
+    margin-left: 18px;
+}
+button
+{
+    border-radius: 25px;
+    padding: 12px;
+    position:absolute;
+    bottom: 7px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    color: white;
+    background-color: rgba(4, 170, 109,0.2);
+}
+#btn1
+{
+    margin-left: 200px;
+    position:absolute;
+    right: 80px;
+    background-color: #04AA6D;
+}
+#btn2
+{
+    padding-left: 50px;
+    color: black;
+}
+/*
+header: nth-child(5)
+{
+    margin-left: 100px;
+    border-radius: 25px;
+}*/
+
+#btn2:hover,#btn1:hover
+{
+    color: white;
+    background-color: #029769;
+}
