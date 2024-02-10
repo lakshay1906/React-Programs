@@ -1,0 +1,11 @@
+body {
+  width: 99.4%;
+  height: 97.5vh;
+}
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
