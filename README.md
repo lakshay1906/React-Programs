@@ -9,3 +9,5 @@ All react folders for practice purpose
 3.  cd project-name
 4.  npm install
 5.  npm run dev-->
+
+    <!-- npm install react-icons --save --> This command is to install react-icons package in your react app

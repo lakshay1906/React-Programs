@@ -1,0 +1,11 @@
+.theme {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: #292929;
+}
