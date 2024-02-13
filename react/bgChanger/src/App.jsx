@@ -1,24 +1,24 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  let body = document.body;
-  let bgColor = "red";
+  let [color, changeColor] = useState("red");
+  function colorChanger() {
+    let randomNum = Math.round(Math.random() * 1000000);
+    let num = new String(randomNum);
+    let num_1 = num.padStart(6, "f");
+    changeColor("#" + num_1);
+  }
   return (
     <>
       <h1>Radhe Radhe</h1>
-      <div className="box" style={{ backgroundColor: { bgColor } }}></div>
-      <button onClick={() => (body.style.backgroundColor = "red")}>Red</button>
-      <button onClick={() => (body.style.backgroundColor = "blue")}>
-        Blue
-      </button>
-      <button onClick={() => (body.style.backgroundColor = "green")}>
-        Green
-      </button>
-      <button onClick={() => (body.style.backgroundColor = "black")}>
-        Black
-      </button>
-      <button onClick={() => (body.style.backgroundColor = "white")}>
-        Default
+      <div className="box" style={{ backgroundColor: color }}></div>
+      <button
+        onClick={() => {
+          colorChanger();
+        }}
+      >
+        Random
       </button>
     </>
   );
