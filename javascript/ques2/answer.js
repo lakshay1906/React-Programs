@@ -1,11 +1,14 @@
-let arr = ["class1", "class2", "class3", "class4"];
+let arr = ["red", "blue", "green", "yellow"];
 let m = document.getElementById("marquee");
 console.log(m);
-m.setAttribute("class", "class3");
-// let i=0;
-// while(i<5)
-// {
-//     setTimeout(()=>{
-        
-//     },2000)
-// }
+let temp = 0;
+
+setInterval(() => {
+  if (temp === 6) {
+    temp = 0;
+  } else {
+    let color = arr[temp];
+    m.style.color = color;
+  }
+  temp++;
+}, 1000);

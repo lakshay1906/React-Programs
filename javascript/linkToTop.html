@@ -1,67 +1,209 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>My web page</title>
-  <style>
-    /* Add some CSS styles to make the page look nicer */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-    }
-
-    h1 {
-      text-align: center;
-      color: #333333;
-    }
-
-    p {
-      margin: 20px;
-    }
-
-    a {
-      color: #0078d4;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    #top-link {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: none;
-    }
-  </style>
-</head>
-<body>
-  <h1>My web page</h1>
-  <p>This is a simple web page that uses JavaScript to create a link that takes you to the top of the page from the bottom of the page.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis. Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur quis nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis. Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur quis nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis. Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur quis nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis. Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur quis nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis. Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur quis nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis. Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur quis nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-  <!-- Add a link that takes you to the top of the page -->
-  <a href="#top" id="top-link">Go to top</a>
-  <script>
-    // Add some JavaScript code to show and hide the link based on the scroll position
-    // Get the link element
-    var topLink = document.getElementById("top-link");
-    // Add a scroll event listener to the window
-    window.addEventListener("scroll", function() {
-      // Get the scroll position
-      var scrollPos = window.scrollY;
-      // If the scroll position is greater than 100 pixels, show the link
-      if (scrollPos > 100) {
-        topLink.style.display = "block";
-      } else {
-        // Otherwise, hide the link
-        topLink.style.display = "none";
+  <head>
+    <title>My web page</title>
+    <style>
+      /* Add some CSS styles to make the page look nicer */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
       }
-    });
-  </script>
-</body>
+
+      h1 {
+        text-align: center;
+        color: #333333;
+      }
+
+      p {
+        margin: 20px;
+      }
+
+      a {
+        color: #0078d4;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      #bottom-link {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My web page</h1>
+    <p>
+      This is a simple web page that uses JavaScript to create a link that takes
+      you to the top of the page from the bottom of the page.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <p id="bottom">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu
+      lorem aliquet consequat. Morbi vitae leo quis nisi tincidunt sagittis.
+      Fusce quis nisl ac augue ullamcorper tincidunt. Sed id sapien quis nisl
+      sagittis aliquet. Cras quis nunc ut lorem luctus ultrices. Donec quis nisl
+      quis eros tincidunt tincidunt. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Curabitur quis
+      nisl quis nisl sagittis aliquet. Cras quis nunc ut lorem luctus ultrices.
+      Donec quis nisl quis eros tincidunt tincidunt. Pellentesque habitant morbi
+      tristique senectus et netus et malesuada fames ac turpis egestas.
+    </p>
+    <!-- Add a link that takes you to the top of the page -->
+    <a href="#bottom" id="bottom-link">Go to top</a>
+    <!-- simply pass the id of the element where you want to jump in the href of anchor tag -->
+
+    <script>
+      // Add some JavaScript code to show and hide the link based on the scroll position
+      // Get the link element
+      // var topLink = document.getElementById("top-link");
+      // // Add a scroll event listener to the window
+      // window.addEventListener("scroll", function () {
+      //   // Get the scroll position
+      //   var scrollPos = window.scrollY;
+      //   // If the scroll position is greater than 100 pixels, show the link
+      //   if (scrollPos > 100) {
+      //     topLink.style.display = "block";
+      //   } else {
+      //     // Otherwise, hide the link
+      //     topLink.style.display = "none";
+      //   }
+      // });
+    </script>
+  </body>
 </html>
