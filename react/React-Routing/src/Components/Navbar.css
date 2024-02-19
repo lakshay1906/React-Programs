@@ -1,0 +1,16 @@
+nav {
+  height: 50px;
+  background-color: purple;
+  display: flex;
+  align-items: center;
+}
+ul {
+  margin-left: 2rem;
+  display: flex;
+  gap: 2rem;
+  font-size: 18px;
+}
+ul li {
+  list-style: none;
+  color: white;
+}
