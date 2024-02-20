@@ -1,5 +1,5 @@
 import "./Card.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import { LuWaves } from "react-icons/lu";
 import { FiWind } from "react-icons/fi";
@@ -8,10 +8,10 @@ let d = document;
 
 function Card() {
   const [src, changeSrc] = useState("");
+
   async function weather_app(city) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4be9a29edd8195df84120d94059fc8ff&units=metric`;
-    d.getElementsByClassName("dis-none")[0].style.display = "none";
-    d.getElementsByClassName("dis-none")[1].style.display = "none";
+    console.log(d.getElementsByClassName("dis-none")[1].style.display);
 
     try {
       let response = await fetch(url);
@@ -80,6 +80,15 @@ function Card() {
         `./src/assets/images/404.png`
       );
     }
+  }
+  useEffect(() => {
+    display_none();
+  }, []);
+
+  function display_none() {
+    d.getElementsByClassName("dis-none")[0].style.display = "none";
+    d.getElementsByClassName("dis-none")[1].style.display = "none";
+    console.log(d.getElementsByClassName("dis-none")[1]);
   }
   return (
     <>

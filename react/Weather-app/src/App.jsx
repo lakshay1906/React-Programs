@@ -2,7 +2,7 @@ import "./App.css";
 import Card from "./Components/Card_1";
 
 function App() {
-  let theme = true;
+  let theme = false;
   function themeValidation() {
     if (theme) {
       document.getElementsByClassName("theme")[0].innerHTML = "Light Mode";
@@ -28,7 +28,7 @@ function App() {
           themeValidation();
         }}
       >
-        Dark Mode
+        Light Mode
       </button>
       <Card />
     </>
