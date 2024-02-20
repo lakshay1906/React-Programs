@@ -10,7 +10,7 @@ import "./App.css";
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/Home",
       element: (
         <>
           <Navbar />
@@ -19,7 +19,7 @@ function App() {
       ),
     },
     {
-      path: "/Services",
+      path: "/Services/:username",
       element: (
         <>
           <Navbar />

@@ -11,6 +11,13 @@ ul {
   font-size: 18px;
 }
 ul li {
+  padding: 0.5rem;
   list-style: none;
   color: white;
+}
+.red {
+  border-radius: 5px;
+  color: white;
+  background-color: red;
+  text-decoration: none;
 }
