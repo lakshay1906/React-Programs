@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Radhe Radhe</h1>
+    <center>
+      <h1 id="src"></h1>
+      <h1 id="desc"></h1>
+    </center>
+
+    <script>
+      let src_dis = document.getElementById("src");
+      let desc_dis = document.getElementById("desc");
+      let arr = {
+        src: [1, 2, 3, 4, 5],
+        desc: [6, 7, 8, 9, 10],
+      };
+      let src_arr = [
+        "./src/Assets/Titan Blue Dial Watch.jpg",
+        "./src/Assets/Leriya_Fashion_Shirt.jpg",
+        "./src/Assets/U.S POLO Sneaker.jpg",
+      ];
+      let title_arr = ["Watch", "Shirt", "Sneaker"];
+      let desc_arr = ["Titan Blue Dial Watch"];
+      let price_arr = ["2499", "499", "4999"];
+      let arr_data = {
+        src: [
+          "./src/Assets/Titan Blue Dial Watch.jpg",
+          "./src/Assets/Leriya_Fashion_Shirt.jpg",
+          "./src/Assets/U.S POLO Sneaker.jpg",
+        ],
+        desc: [
+          "Titan Blue Dial Watch",
+          "Leriya Fashion Shirt",
+          "U.S POLO Sneaker",
+        ],
+      };
+      //   for (
+      //     let i = 0;
+      //     i < arr_data.src.length || i < arr_data.desc.length;
+      //     i++
+      //   ) {
+      //     const element = arr_data;
+      // }
+      arr_data.src.map((ele) => {
+        src_dis.innerHTML = src_dis.innerHTML + ele;
+      });
+      arr_data.desc.map((ele) => {
+        desc_dis.innerHTML = `${desc_dis.innerHTML} ${ele} --`;
+      });
+    </script>
+  </body>
+</html>

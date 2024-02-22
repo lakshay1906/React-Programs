@@ -64,12 +64,18 @@ container.addEventListener(
       e.target.tagName === "LI"
     ) {
       if (checked_val) {
-        image.setAttribute("src", "/React-Programs/javascript/checked.png");
-        li.style.textDecoration = "line-through";
+        // image.setAttribute("src", "/React-Programs/javascript/checked.png");
+        e.target.parentElement.childNodes[1].src =
+          "http://127.0.0.1:5500/React-Programs/javascript/checked.png";
+        console.log(image, e.target.parentElement);
+        console.dir(e.target.parentElement.childNodes[1].src);
+        e.target.parentElement.style.textDecoration = "line-through";
         checked_val = false;
       } else {
-        image.setAttribute("src", "/React-Programs/javascript/unchecked_1.jpg");
-        li.style.textDecoration = "none";
+        // image.setAttribute("src", "/React-Programs/javascript/unchecked_1.jpg");
+        e.target.parentElement.childNodes[1].src =
+          "http://127.0.0.1:5500/React-Programs/javascript/unchecked_1.jpg";
+        e.target.parentElement.style.textDecoration = "none";
         checked_val = true;
       }
     }
