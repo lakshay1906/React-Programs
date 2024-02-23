@@ -39,7 +39,6 @@ function createTask() {
     li.appendChild(span);
     li.classList.add("task");
     delete_1 = d.getElementsByClassName("delete");
-    console.log(delete_1);
     temp++;
   }
 }
@@ -67,8 +66,6 @@ container.addEventListener(
         // image.setAttribute("src", "/React-Programs/javascript/checked.png");
         e.target.parentElement.childNodes[1].src =
           "http://127.0.0.1:5500/React-Programs/javascript/checked.png";
-        console.log(image, e.target.parentElement);
-        console.dir(e.target.parentElement.childNodes[1].src);
         e.target.parentElement.style.textDecoration = "line-through";
         checked_val = false;
       } else {
