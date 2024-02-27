@@ -1,64 +1,80 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  let capital = document.getElementById("capital");
-  let range = document.getElementById("range");
-  let display = document.getElementById("display");
+  const [num, setNum] = useState(0);
+  const [str, setStr] = useState("abcdefghijklmnopqrstuvwxyz");
+  const [password, setPassword] = useState("_Ypk^*RrwZvgKM");
+  const [range, setRange] = useState(8);
+  const [symbol, setSymbol] = useState(false);
+  const [capital, setCapital] = useState(false);
 
-  function generate_pass(string) {
-    let str = string;
+  useMemo(() => {
     let pass = "";
 
-    for (let i = 0; i < range.value; i++) {
-      let char = Math.round(Math.random() * str.length);
+    for (let i = 0; i < range; i++) {
+      let char = Math.floor(Math.random() * str.length);
       pass = pass + str.charAt(char);
     }
+    console.log("run");
+    setPassword(pass);
+  }, [range, num, symbol, capital]);
 
-    let random = range.value - pass.length;
-    let remain = "";
+  // why we are not able to enter function in dependencies ....?
 
-    for (let i = 0; i < random; i++) {
-      let char = Math.round(Math.random() * str.length);
-      remain = remain + str.charAt(char);
-    }
-
-    pass = pass.padEnd(range.value, remain);
-    display.value = pass;
-  }
   function validation() {
-    if (document.getElementById("capital").checked) {
-      if (document.getElementById("symbol").checked) {
-        generate_pass(
-          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNPOQRSTUVWXYZ!@#$%^&*_+~"
+    if (capital) {
+      if (symbol) {
+        setStr(
+          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNPOQRSTUVWXYZ0123456789"
         );
       } else {
-        generate_pass("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNPOQRSTUVWXYZ");
+        setStr("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNPOQRSTUVWXYZ");
       }
     } else {
-      if (document.getElementById("symbol").checked) {
-        generate_pass("abcdefghijklmnopqrstuvwxyz!@#$%^&*_+~");
+      if (symbol) {
+        setStr("abcdefghijklmnopqrstuvwxyz0123456789");
       } else {
-        generate_pass("abcdefghijklmnopqrstuvwxyz");
+        setStr("abcdefghijklmnopqrstuvwxyz");
       }
     }
   }
+
   return (
     <>
       <h1 onChange={() => alert("Jai Siya Ram")}>Radhe Radhe</h1>
 
       <div className="container">
-        <input type="text" value={""} id="display" readOnly />
-        <button onClick={() => validation()}>click</button>
-        <input type="range" id="range" min={8} max={20} />
-        <label htmlFor="range"> Range</label>
+        <input type="text" value={password} id="display" readOnly />
+        <button
+          onClick={() => {
+            setNum(num + 1);
+            validation();
+          }}
+        >
+          click
+        </button>
+        <input
+          type="range"
+          id="range"
+          min={8}
+          max={20}
+          value={range}
+          onChange={(e) => {
+            setRange(e.target.value);
+            validation();
+          }}
+        />
+        <label htmlFor="range"> Range {range}</label>
         <br />
         <input
           type="checkbox"
           name="capital"
           id="capital"
-          onClick={() => validation()}
+          onClick={(e) => {
+            setCapital(e.target.checked);
+            validation();
+          }}
         />
         <label htmlFor="capital">Capital Letters</label>
         <br />
@@ -66,7 +82,10 @@ function App() {
           type="checkbox"
           name="symbol"
           id="symbol"
-          onClick={() => validation()}
+          onClick={() => {
+            setSymbol(e.target.checked);
+            validation();
+          }}
         />
         <label htmlFor="symbol">Symbols</label>
       </div>
