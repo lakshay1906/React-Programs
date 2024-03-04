@@ -2,6 +2,7 @@ let d = document;
 let btn = d.getElementById("btn");
 let input = d.querySelector("input");
 let container = d.getElementsByClassName("list-container")[0];
+const array = [];
 
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
@@ -26,6 +27,7 @@ function createTask() {
   } else {
     li = d.createElement("li");
     li.innerText = input.value;
+    array.push(input.value);
     li.style.listStyle = "circle";
     container.appendChild(li);
     image = d.createElement("img");
@@ -40,6 +42,8 @@ function createTask() {
     li.classList.add("task");
     delete_1 = d.getElementsByClassName("delete");
     temp++;
+    localStorage.setItem("data", array);
+    console.log(array);
   }
 }
 
@@ -58,6 +62,8 @@ container.addEventListener(
   (e) => {
     if (e.target.classList.value === "delete") {
       e.target.parentElement.remove();
+      array.pop();
+      console.log(array);
     } else if (
       e.target.classList.value === "check-img" ||
       e.target.tagName === "LI"
