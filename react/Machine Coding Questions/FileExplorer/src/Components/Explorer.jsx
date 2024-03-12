@@ -35,7 +35,6 @@ const Explorer = ({ src }) => {
       };
       src.items.push(fileDetail);
     }
-    console.log(src);
   }
 
   if (src.isFolder) {
