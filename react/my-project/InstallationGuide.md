@@ -37,7 +37,9 @@ Step-4
 Copy this code in index.css
 
 ```
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 Start your Server
