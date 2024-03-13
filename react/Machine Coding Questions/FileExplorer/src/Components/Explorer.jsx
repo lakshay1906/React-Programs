@@ -1,30 +1,65 @@
 // import React from "react";
-import { useState } from "react";
+import { isValidElement, useState } from "react";
 
 const Explorer = ({ src }) => {
   // console.log(src);
-  const [expand, setExpand] = useState(true);
+  const [expand, setExpand] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [newFolderIcon, setNewFolderIcon] = useState(false);
   const [folderName, setFolderName] = useState("");
+  const [unnamedFiles, setUnnamedFiles] = useState(1);
+  const [unnamedFolder, setUnnamedFolder] = useState(1);
 
   window.addEventListener("click", (e) => {
     // console.dir(e.target.tagName);
-    if (e.target.tagName === "HTML" || e.target.tagName === "DIV")
+    if (
+      e.target.tagName === "HTML" ||
+      e.target.tagName === "DIV" ||
+      e.target.tagName === "SPAN"
+    )
       setShowInput(false);
   });
 
   function addBtn(name) {
-    console.log(name);
+    let fileName = name.trim();
+    let temp;
     if (newFolderIcon) {
       // Its a folder that we are adding inside the parent folder
-
       let folderDetail = {
-        name: name,
+        name: fileName,
         isFolder: true,
         items: [],
       };
-      src.items.push(folderDetail);
+      for (const iterator of src.items) {
+        if (iterator.name === fileName) {
+          // ENTERED in this block because there is another file or folder with same name
+          if (iterator.isFolder) {
+            //Entered in this block because there is another folder with same name
+            alert(
+              "Folder with this name already exist!!\nPlease Enter another Name for the folder."
+            );
+            temp = false;
+            break;
+          } else {
+            // Entered in this block because name
+            temp = true;
+          }
+        } else {
+          temp = true;
+        }
+      }
+
+      if (temp) {
+        if (fileName.length !== 0) {
+          src.items.push(folderDetail);
+          setShowInput(false);
+        } else {
+          folderDetail.name = `New Folder (${unnamedFolder})`;
+          src.items.push(folderDetail);
+          setShowInput(false);
+          setUnnamedFolder(unnamedFolder + 1); // Why unnamedFolder++ isn't working but unnamedFolder+1 is working
+        }
+      }
     } else {
       // Its a file that we are adding inside the parent folder
 
@@ -33,7 +68,35 @@ const Explorer = ({ src }) => {
         isFolder: false,
         items: [],
       };
-      src.items.push(fileDetail);
+      for (const iterator of src.items) {
+        if (iterator.name === fileName) {
+          // ENTERED in this block because there is another file or folder with same name
+          if (!iterator.isFolder) {
+            //Entered in this block because there is another folder with same name
+            alert(
+              "Folder with this name already exist!!\nPlease Enter another Name for the folder."
+            );
+            temp = false;
+            break;
+          } else {
+            // Entered in this block because name
+            temp = true;
+          }
+        } else {
+          temp = true;
+        }
+      }
+      if (temp) {
+        if (fileName.length !== 0) {
+          src.items.push(fileDetail);
+          setShowInput(false);
+        } else {
+          fileDetail.name = `New File (${unnamedFiles})`;
+          src.items.push(fileDetail);
+          setShowInput(false);
+          setUnnamedFiles(unnamedFiles + 1);
+        }
+      }
     }
   }
 
@@ -59,7 +122,7 @@ const Explorer = ({ src }) => {
               className="bg-gray-300 px-2 rounded"
               onClick={(e) => {
                 // e.stopPropagation();
-                setExpand(false);
+                setExpand(true);
                 setShowInput(true);
                 setNewFolderIcon(true);
               }}
@@ -70,8 +133,8 @@ const Explorer = ({ src }) => {
               id="newFile"
               className="bg-gray-300 px-2 rounded w-fit"
               onClick={(e) => {
-                setExpand(false);
                 setShowInput(true);
+                setExpand(true);
                 // e.stopPropagation();
                 setNewFolderIcon(false);
               }}
@@ -80,39 +143,32 @@ const Explorer = ({ src }) => {
             </button>
           </div>
         </div>
-        <div
-          id="inputContainer"
-          className="flex items-center ml-6 w-fit"
-          style={{ display: expand ? "none" : "block" }}
-        >
-          {showInput && (
-            <span
-              className="text-2xl w-fit"
-              style={{ display: expand ? "none" : "inline" }}
-            >
+        {showInput && (
+          <div id="inputContainer" className="flex items-center ml-6 w-fit">
+            <span className="text-2xl w-fit">
               {newFolderIcon ? "📁 " : "📄 "}
             </span>
-          )}
-          {showInput && (
             <input
               className="rounded text-lg w-fit px-2"
               type="text"
               onChange={(e) => setFolderName(e.target.value)}
+              placeholder={
+                newFolderIcon ? "Enter Folder Name...." : "Enter File Name...."
+              }
             />
-          )}
-          {showInput && (
             <button
               className="ml-2 bg-white px-2 rounded"
               onClick={() => addBtn(folderName)}
             >
               Add
             </button>
-          )}
-        </div>
+          </div>
+        )}
         <div
-          className="ml-6 w-fit"
-          style={{ display: expand ? "none" : "block" }}
+          className="ml-14 w-fit"
+          style={{ display: expand ? "block" : "none" }}
         >
+          <div className="h-full w-1 bg-white mr-2"></div>
           {src.items.map((ele) => {
             return <Explorer src={ele} />;
           })}

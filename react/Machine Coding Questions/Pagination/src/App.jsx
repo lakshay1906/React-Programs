@@ -8,6 +8,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [data, setData] = useState({});
   const [showCards, setShowCards] = useState(false);
+  const [category, setCategory] = useState("lighting");
   console.log("Radhe Radhe");
   async function fetchData() {
     let rawData = await fetch("https://dummyjson.com/products?limit=100");
@@ -26,17 +27,23 @@ function App() {
       <Filter_btn />
       {showCards && (
         <div className="flex flex-wrap px-4 gap-x-2 gap-y-4 py-10 overflow-y-auto">
-          {data.products.map((ele) => {
-            return (
-              <Card
-                imgLink={ele.thumbnail}
-                brandName="Apple"
-                productName="iPhone 9"
-                desc="An apple mobile which is nothing like apple"
-                price="70000"
-              />
-            );
-          })}
+          {data.products
+            .filter((ele) => {
+              return ele.category === category;
+            })
+            .map((ele) => {
+              console.log(ele);
+              return (
+                <Card
+                  keys={ele.id}
+                  imgLink={ele.thumbnail}
+                  brandName={ele.brand}
+                  productName={ele.title}
+                  desc={ele.description}
+                  price={ele.price}
+                />
+              );
+            })}
         </div>
       )}
     </>

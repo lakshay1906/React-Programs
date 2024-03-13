@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Filter_btn = () => {
-  const [showFilter, setShowFilter] = useState(true);
+  const [showFilter, setShowFilter] = useState(false);
   return (
     <>
       <button
