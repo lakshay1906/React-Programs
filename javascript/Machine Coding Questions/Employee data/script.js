@@ -13,10 +13,13 @@ let add_btn = document.getElementById("add-emp");
 
 // console.dir(name);
 
+let localData = localStorage.getItem("data");
+let parsedData = JSON.parse(localData);
+// parsedData.push(5);
+console.log(parsedData);
 (async function () {
   let rawData = await fetch("./data.json");
   data = await rawData.json();
-  let localData = localStorage.getItem("data");
   //   console.log(JSON.parse(localData));
   let finalData = JSON.parse(localData) ? JSON.parse(localData) : data;
   console.log(finalData);
@@ -76,10 +79,10 @@ add_btn.addEventListener("click", () => {
     dob: dob,
     imageUrl: img,
   };
-  if (personData.firstName !== "") data.push(personData);
+  if (personData.firstName !== "") parsedData.push(personData);
   console.log(personData.firstName);
-  console.log(data);
+  console.log(parsedData);
   createEle(personData);
-  localStorage.setItem("data", JSON.stringify(data));
+  localStorage.setItem("data", JSON.stringify(parsedData));
 });
 // localStorage.clear();

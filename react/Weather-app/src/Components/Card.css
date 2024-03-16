@@ -1,7 +1,7 @@
 .card {
-  width: 280px;
-  max-height: 380px;
-  padding: 25px;
+  width: 28rem;
+  max-height: 38rem;
+  padding: 2.5rem;
   /* border: 1px solid black; */
   background: rgb(0, 217, 255);
   background: linear-gradient(
@@ -14,61 +14,69 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 1rem;
   position: relative;
 }
 img {
-  width: 50px;
+  width: 5rem;
 }
 .search-btn {
-  padding: 10px;
+  padding: 1rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   background-color: white;
   border: none;
 }
 .input-box {
-  padding: 10px;
-  width: 200px;
-  font-size: 18px;
+  padding: 1rem;
+  width: 20rem;
+  font-size: 1.8rem;
   font-weight: 600;
   border-radius: 25px;
   border: none;
+  /* margin-bottom: 14.4rem; */
 }
 .search-box {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
 }
 .temp {
-  font-size: 45px;
+  font-size: 5rem;
 }
 .other-info {
-  width: 300px;
-  height: 40px;
+  width: 30rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  font-size: 22px;
-  gap: 20px;
+  font-size: 2.2rem;
+  gap: 2rem;
 }
 .humidity,
 .wind-speed {
-  width: 100px;
+  width: 10rem;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 1rem;
 }
 .wind-speed {
-  width: 150px;
+  width: 15rem;
 }
 .label {
-  width: 300px;
-  font-size: 18px;
+  width: 30rem;
+  font-size: 1.8rem;
   display: flex;
   justify-content: space-around;
   position: absolute;
-  bottom: 22px;
-  left: 25px;
+  bottom: 2.2rem;
+  left: 2.5rem;
 }
 .image {
-  width: 10rem;
+  width: 16rem;
+  /* position: absolute;
+  top: 5.6rem; */
+}
+.location {
+  font-size: 3.5rem;
 }

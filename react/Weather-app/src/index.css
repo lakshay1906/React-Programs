@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+html {
+  font-size: 10px;
+}
 body {
   width: 99.4%;
   height: 97.5vh;
@@ -13,4 +16,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (width >1450px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (width <400px) {
+  html {
+    font-size: 9px;
+  }
+}
+@media (width <340px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media (width <300px) {
+  html {
+    font-size: 7px;
+  }
 }
