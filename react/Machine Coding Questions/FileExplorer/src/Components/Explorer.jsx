@@ -1,5 +1,5 @@
-// import React from "react";
-import { isValidElement, useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 const Explorer = ({ src }) => {
   // console.log(src);
@@ -57,6 +57,7 @@ const Explorer = ({ src }) => {
           folderDetail.name = `New Folder (${unnamedFolder})`;
           src.items.push(folderDetail);
           setShowInput(false);
+          setFolderName("");
           setUnnamedFolder(unnamedFolder + 1); // Why unnamedFolder++ isn't working but unnamedFolder+1 is working
         }
       }

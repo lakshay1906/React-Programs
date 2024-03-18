@@ -5,7 +5,9 @@ const Button = () => {
   const value = useContext(CounterContext);
   return (
     <>
-      <button>This is taken directly from App.jsx {value.count}</button>
+      <button onClick={() => {}}>
+        This is taken directly from App.jsx {value.count}
+      </button>
     </>
   );
 };

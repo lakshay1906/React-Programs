@@ -35,16 +35,28 @@
         display: flex;
         height: 240px;
       }
-      .flex .operators > div {
+      .operators {
+        width: 80px;
+        height: 220px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        /* border: 1px solid black; */
+      }
+      .flex .operators > button {
         background-color: white;
         width: 40px;
         height: 40px;
-        margin: 10px 10px;
+        /* margin: 10px 10px; */
         border-radius: 5px;
         display: flex;
         justify-content: space-around;
         align-items: center;
         font-size: 22px;
+        cursor: pointer;
+        border: none;
       }
       .calculator .buttons {
         width: 90%;
@@ -64,6 +76,7 @@
         justify-content: space-around;
         align-items: center;
         border-radius: 5px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -85,12 +98,11 @@
           <div class="btn0" onclick="display(0)">0</div>
           <div class="clear" onclick="clear_val()">C</div>
         </div>
-        <div class="operators">
-          <div onclick="remove_val()">x</div>
-          <div onclick="display(`+`)">+</div>
-          <div onclick="display(`-`)">-</div>
-          <div onclick="display(`*`)">*</div>
-          <div onclick="display(`/`)">/</div>
+        <div class="operators" onclick="disable()">
+          <button onclick="display(`+`)" id="plus">+</button>
+          <button onclick="display(`-`)" id="minus">-</button>
+          <button onclick="display(`*`)" id="mul">*</button>
+          <button onclick="display(`/`)" id="divide">/</button>
         </div>
       </div>
     </div>

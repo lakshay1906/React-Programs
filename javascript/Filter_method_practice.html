@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log("Radhe Radhe");
+
+      //   let pairedData = [];
+      //   async function fetchData() {
+      //     let rawData = await fetch("https://dummyjson.com/products?limit=100");
+      //     let data = await rawData.json();
+      //     console.log(data.products);
+
+      //     pairedData.push(
+      //       ...data.products.filter((ele) => ele.category === "smartphones")
+      //     );
+      //     pairedData.push(
+      //       ...data.products.filter((ele) => ele.category === "laptops")
+      //     );
+
+      //     console.log(pairedData);
+      //   }
+      //   fetchData();
+
+      let pairedData = [];
+      async function fetchData() {
+        let rawData = await fetch("https://dummyjson.com/products?limit=100");
+        let data = await rawData.json();
+        console.log(data.products);
+
+        pairedData = data.products
+          .filter(
+            (ele) =>
+              ele.category === "smartphones" || ele.category === "laptops"
+          )
+          .map((ele) => console.log(ele));
+
+        console.log(pairedData);
+      }
+      fetchData();
+    </script>
+  </body>
+</html>

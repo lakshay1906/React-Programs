@@ -24,7 +24,7 @@ function App() {
 
   function iterate() {
     console.log(apiData);
-    // setQuestion(apiData.results);
+    setQuestion(apiData.results);
   }
   useEffect(() => {
     iterate();
@@ -39,7 +39,7 @@ function App() {
         <Card question={question} />
         <button
           onClick={() => {
-            setCount(count + 1);
+            // setCount(count + 1);
           }}
         >
           Counter {count}

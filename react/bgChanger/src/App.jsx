@@ -11,11 +11,19 @@ function App() {
   }
   return (
     <>
-      <h1>Radhe Radhe</h1>
+      <h1>React BG Changer</h1>
       <div className="box" style={{ backgroundColor: color }}></div>
       <button
         onClick={() => {
           colorChanger();
+        }}
+        style={{
+          padding: "10px",
+          fontSize: "18px",
+          margin: "10px",
+          border: "none",
+          borderRadius: "18px",
+          background: color,
         }}
       >
         Random
