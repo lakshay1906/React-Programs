@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartCounter } from "../Contexts/CartCounter";
 
 const Card = (props) => {
+  const value = useContext(CartCounter);
   return (
     <>
       <div
@@ -26,7 +28,12 @@ const Card = (props) => {
         </div>
         <h2 className="m-auto text-lg">₹{props.price}</h2>
         <h2 className="m-auto text-lg">⭐⭐⭐⭐</h2>
-        <button className="m-auto text-xl bg-blue-800 rounded w-full h-8">
+        <button
+          className="m-auto text-xl bg-blue-800 rounded w-full h-8"
+          onClick={() => {
+            value.setCounter(value.counter + 1);
+          }}
+        >
           Add to Cart
         </button>
       </div>

@@ -15,16 +15,19 @@ function App() {
     const data = await raw_data.json();
     console.log(data);
     setData(data);
-    console.log(data.results[count].question);
-    setQuestion(data.results[count].question);
+    console.log(data.result[count].question);
+    setQuestion(data.result[count].question);
   }
   useEffect(() => {
     getData();
   }, []);
 
-  function iterate() {
-    console.log(apiData);
-    setQuestion(apiData.results);
+  {
+    apiData &&
+      function iterate() {
+        console.log(apiData);
+        setQuestion(apiData.results);
+      };
   }
   useEffect(() => {
     iterate();

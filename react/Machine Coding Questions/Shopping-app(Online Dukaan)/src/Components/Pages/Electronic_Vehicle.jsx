@@ -1,11 +1,39 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { dataContext } from "../../Contexts/DataContext";
+import Card from "../Card";
 
 const Electronic_Vehicle = () => {
-  const value = useContext(dataContext);
-  console.log(value.data);
-  console.log(value.a);
-  return <div className="text-3xl">Electronic_Vehicle</div>;
+  // console.log("Radhe Radhe");
+
+  const data = useContext(dataContext);
+  console.log(data);
+  return (
+    <>
+      <div className="flex flex-wrap px-4 gap-x-2 gap-y-4 py-10 overflow-y-auto">
+        {data.products
+          .filter((ele) => {
+            return (
+              ele.category === "smartphones" ||
+              ele.category === "laptops" ||
+              ele.category === "automotive" ||
+              ele.category === "motorcycle"
+            );
+          })
+          .map((ele) => {
+            return (
+              <Card
+                keys={ele.id}
+                imgLink={ele.thumbnail}
+                brandName={ele.brand}
+                productName={ele.title}
+                desc={ele.description}
+                price={ele.price}
+              />
+            );
+          })}
+      </div>
+    </>
+  );
 };
 
 export default Electronic_Vehicle;
