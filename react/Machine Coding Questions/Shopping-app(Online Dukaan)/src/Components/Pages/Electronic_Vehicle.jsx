@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { dataContext } from "../../Contexts/DataContext";
+import { DataContext } from "../../Contexts/DataContext";
 import Card from "../Card";
 
 const Electronic_Vehicle = () => {
   // console.log("Radhe Radhe");
 
-  const data = useContext(dataContext);
+  const data = useContext(DataContext);
   console.log(data);
   return (
     <>

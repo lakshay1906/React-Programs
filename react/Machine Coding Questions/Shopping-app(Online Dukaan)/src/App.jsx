@@ -13,19 +13,34 @@ function App() {
         </h1>
         <div className="flex w-11/12 justify-center flex-wrap gap-x-72 gap-y-8 mt-5">
           <NavLink to={"/electronicsAndVehicles"}>
-            <Category_cards category="Electronics and Vehicles" />
+            <Category_cards
+              category="Electronics and Vehicles"
+              bgImg="url('/src/assets/Electro_vehicle.jpg')"
+            />
           </NavLink>
           <NavLink to="/groceries">
-            <Category_cards category="Groceries and Fragrances" />
+            <Category_cards
+              category="Groceries and Fragrances"
+              bgImg="url('/src/assets/Groceries_perfumes.jpg')"
+            />
           </NavLink>
           <NavLink to="/homeDecoration">
-            <Category_cards category="Home Decoration and Lightings" />
+            <Category_cards
+              category="Home Decoration and Lightings"
+              bgImg="url('/src/assets/Decoration_lighting.jpg')"
+            />
           </NavLink>
           <NavLink to="/skincare_Bags">
-            <Category_cards category="Skin Care and Hand Bags" />
+            <Category_cards
+              category="Skin Care and Hand Bags"
+              bgImg="url('/src/assets/Skincare_bags.jpg')"
+            />
           </NavLink>
           <NavLink to="/wearables">
-            <Category_cards category="Men and Women Wearables" />
+            <Category_cards
+              category="Men and Women Wearables"
+              bgImg="url('/src/assets/Wearables.jpg')"
+            />
           </NavLink>
         </div>
       </div>

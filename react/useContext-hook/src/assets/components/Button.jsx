@@ -7,10 +7,10 @@ const Button = () => {
   return (
     <div>
       <button onClick={() => value.setCount((count) => count + 1)}>
+        I am a button
         <span>
           <Component1 />
         </span>
-        I am a button
       </button>
     </div>
   );

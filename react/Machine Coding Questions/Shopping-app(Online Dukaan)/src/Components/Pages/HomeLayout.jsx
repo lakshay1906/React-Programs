@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import { Outlet } from "react-router-dom";
 import { CartCounter } from "../../Contexts/CartCounter";
-import { dataContext } from "../../Contexts/DataContext";
+import { DataContext } from "../../Contexts/DataContext";
+import { ProductObj } from "../../Contexts/ProductObj";
 
 const HomeLayout = () => {
-  const [counter, SetCounter] = useState(5);
+  const [counter, setCounter] = useState(0);
   const [data, setData] = useState({});
   const [showCards, setShowCards] = useState(false);
+  const [productObj, setProductObj] = useState([]);
 
   async function fetchData() {
     let rawData = await fetch("https://dummyjson.com/products?limit=100");
@@ -23,12 +25,14 @@ const HomeLayout = () => {
   return (
     <>
       {showCards && (
-        <dataContext.Provider value={data}>
-          <CartCounter.Provider value={{ counter, SetCounter }}>
-            <Navbar />
-            <Outlet />
+        <DataContext.Provider value={data}>
+          <CartCounter.Provider value={{ counter, setCounter }}>
+            <ProductObj.Provider value={{ productObj, setProductObj }}>
+              <Navbar />
+              <Outlet />
+            </ProductObj.Provider>
           </CartCounter.Provider>
-        </dataContext.Provider>
+        </DataContext.Provider>
       )}
     </>
   );

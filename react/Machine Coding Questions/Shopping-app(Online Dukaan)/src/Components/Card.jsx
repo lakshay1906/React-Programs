@@ -1,8 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { CartCounter } from "../Contexts/CartCounter";
+import { ProductObj } from "../Contexts/ProductObj";
+import { DataContext } from "../Contexts/DataContext";
+import { CartData } from "../Contexts/CartData";
 
 const Card = (props) => {
-  const value = useContext(CartCounter);
+  const { counter, setCounter } = useContext(CartCounter);
+  // const CartData = useContext(CartData);
+
+  const data = useContext(DataContext);
+  let productName = "";
+  let arr = useRef([]);
+
+  function onCartClick(e) {
+    productName = e.target.parentNode.innerText.split("\n")[1];
+    arr.current.push(
+      ...data.products.filter((ele) => ele.title === productName)
+    );
+    counter >= 20
+      ? alert("Your cart is full now!!\nPlease proceed to checkout first")
+      : setCounter(arr.current.length);
+    console.log(arr);
+  }
+
   return (
     <>
       <div
@@ -10,6 +30,7 @@ const Card = (props) => {
         className="w-56 bg-gray-500 text-white flex flex-col m-auto rounded pt-3 p-x-2 gap-y-1"
         key={props.productName}
       >
+        {/* <h1>{cartData.length}</h1> */}
         <div className="w-11/12 m-auto h-36">
           <img
             src={props.imgLink}
@@ -30,8 +51,8 @@ const Card = (props) => {
         <h2 className="m-auto text-lg">⭐⭐⭐⭐</h2>
         <button
           className="m-auto text-xl bg-blue-800 rounded w-full h-8"
-          onClick={() => {
-            value.setCounter(value.counter + 1);
+          onClick={(e) => {
+            onCartClick(e);
           }}
         >
           Add to Cart
@@ -42,14 +63,3 @@ const Card = (props) => {
 };
 
 export default Card;
-
-{
-  /* <Card
-                keys={ele.id}
-                imgLink={ele.thumbnail}
-                brandName={ele.brand}
-                productName={ele.title}
-                desc={ele.description}
-                price={ele.price}
-              /> */
-}

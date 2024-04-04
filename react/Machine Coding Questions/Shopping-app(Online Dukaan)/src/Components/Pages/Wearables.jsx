@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "../Card";
 import { useContext } from "react";
-import { dataContext } from "../../Contexts/DataContext";
+import { DataContext } from "../../Contexts/DataContext";
 
 const Wearables = () => {
-  const data = useContext(dataContext);
+  const data = useContext(DataContext);
 
   return (
     <>

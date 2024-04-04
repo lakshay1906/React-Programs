@@ -13,11 +13,6 @@ function Card() {
   const [cityName, setCityName] = useState("Faridabad");
   const [render, setRender] = useState(false);
 
-  // const [location, setLocation] = useState("");
-  // const [temp, setTemp] = useState("");
-  // const [humidity, setHumitdity] = useState("");
-  // const [speed, setSpeed] = useState("");
-
   async function weather_app(city) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4be9a29edd8195df84120d94059fc8ff&units=metric`;
 
@@ -25,14 +20,6 @@ function Card() {
       let response = await fetch(url);
       let data = await response.json();
       console.log(data);
-      setData(data);
-      setRender(true);
-      // setLocation(data.name);
-      // setTemp(Math.round(data.main.temp) + "°c");
-      // setHumitdity(data.main.humidity + "%");
-      // setSpeed(data.wind.speed + "kmph");
-      // d.getElementsByClassName("dis-none")[2].innerText = "Humidity";
-      // d.getElementsByClassName("dis-none")[3].innerText = "Wind-Speed";
 
       if (data.weather[0].main === "Clear") {
         changeSrc("./src/assets/images/clear.png");
@@ -48,9 +35,20 @@ function Card() {
       } else if (data.weather[0].main === "Snow") {
         changeSrc("./src/assets/images/snow.png");
       }
+      setData(data);
+      setRender(true);
     } catch (error) {
-      console.log("error occured");
-      setRender(false);
+      const data = {
+        main: {
+          temp: "Place not found",
+          humidity: null,
+        },
+        name: null,
+        wind: {
+          speed: null,
+        },
+      };
+      setData(data);
       changeSrc("./src/assets/images/404.png");
     }
   }
@@ -83,19 +81,35 @@ function Card() {
             </button>
           </div>
           <img className="image" id="image" src={src} />
-          <h1 className="temp">{Math.round(data.main.temp) + "°c"}</h1>
+          <h1 className="temp">
+            {typeof data.main.temp == "number"
+              ? Math.round(data.main.temp) + "°c"
+              : data.main.temp}
+          </h1>
           <h1 className="location">{data.name}</h1>
-          <div className="other-info">
+          <div
+            className="other-info"
+            style={{ display: data.main.humidity ? "" : "none" }}
+          >
             <div className="humidity">
               <LuWaves className="dis-none" size={"2.4rem"} />
-              <span className="humid">{data.main.humidity + "%"}</span>
+              <span className="humid">
+                {data.main.humidity ? data.main.humidity + "%" : null}
+              </span>
             </div>
             <div className="wind-speed">
               <FiWind className="dis-none" size={"3.2rem"} />
-              <span className="speed">{data.wind.speed + "kmph"}</span>
+              <span className="speed">
+                {typeof data.wind.speed == "number"
+                  ? data.wind.speed + "kmph"
+                  : null}
+              </span>
             </div>
           </div>
-          <div className="label">
+          <div
+            className="label"
+            style={{ display: data.main.humidity ? "" : "none" }}
+          >
             <div className="dis-none">Humidity</div>
             <div className="dis-none">Wind-Speed</div>
           </div>

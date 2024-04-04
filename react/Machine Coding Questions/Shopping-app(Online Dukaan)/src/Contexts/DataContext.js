@@ -1,5 +1,3 @@
 import { createContext } from "react";
 
-export const dataContext = createContext({
-  a: "data",
-});
+export const DataContext = createContext({});

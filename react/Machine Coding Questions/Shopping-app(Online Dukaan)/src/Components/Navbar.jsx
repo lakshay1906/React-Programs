@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { CartCounter } from "../Contexts/CartCounter";
 
 const Navbar = () => {
-  const value = useContext(CartCounter);
+  const { counter, setCounter } = useContext(CartCounter);
 
   return (
     <>
@@ -17,8 +17,19 @@ const Navbar = () => {
           <h1 className="text-4xl">Online Dukaan</h1>
         </div>
         <NavLink to="/addToCart">
-          <MdOutlineShoppingCart size="2.1rem" className=" cursor-pointer" />
-          <span className="text-2xl text-white">{value.counter}</span>
+          <div className="relative mt-2">
+            <MdOutlineShoppingCart size="2.5rem" className=" cursor-pointer " />
+            <span
+              className="text-xl text-white absolute -top-4 -right-2 bg-slate-400 rounded-full w-6 h-6 flex justify-center items-center "
+              style={{
+                display: counter ? "" : "none",
+                padding: counter < 10 ? "0px" : "14px",
+                // padding: "13px",
+              }}
+            >
+              {counter}
+            </span>
+          </div>
         </NavLink>
       </div>
     </>
