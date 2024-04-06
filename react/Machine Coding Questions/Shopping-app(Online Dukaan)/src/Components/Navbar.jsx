@@ -2,19 +2,18 @@ import React, { useContext } from "react";
 import { FcShop } from "react-icons/fc";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { NavLink } from "react-router-dom";
-import { CartCounter } from "../Contexts/CartCounter";
+import { ProductObj } from "../Contexts/ProductObj";
 
 const Navbar = () => {
-  const { counter, setCounter } = useContext(CartCounter);
-
+  const array = useContext(ProductObj);
   return (
     <>
       <div className="bg-slate-800 text-white h-16 flex items-center justify-between px-5 cursor-default">
-        <div className="flex items-center  w-72 font-semibold justify-between">
-          <NavLink to="">
+        <div className="w-72 font-semibold">
+          <NavLink to="" className={"flex items-center justify-between w-full"}>
             <FcShop size="2rem" className="cursor-pointer" />
+            <h1 className="text-4xl">Online Dukaan</h1>
           </NavLink>
-          <h1 className="text-4xl">Online Dukaan</h1>
         </div>
         <NavLink to="/addToCart">
           <div className="relative mt-2">
@@ -22,12 +21,12 @@ const Navbar = () => {
             <span
               className="text-xl text-white absolute -top-4 -right-2 bg-slate-400 rounded-full w-6 h-6 flex justify-center items-center "
               style={{
-                display: counter ? "" : "none",
-                padding: counter < 10 ? "0px" : "14px",
+                display: array.current.length ? "" : "none",
+                padding: array.current.length < 10 ? "0px" : "14px",
                 // padding: "13px",
               }}
             >
-              {counter}
+              {array.current.length}
             </span>
           </div>
         </NavLink>

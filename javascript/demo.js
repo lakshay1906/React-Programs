@@ -25,12 +25,12 @@
 
 // ????????????????????? how to increment a number and also making the number of at least 2 digits by adding zero in the start
 
-// let d = document;
+let d = document;
 // let btn1 = d.getElementsByClassName('btn1')[0];
 // let btn2 = d.getElementsByClassName('btn2')[0];
 // let btn3 = d.getElementsByClassName('btn3')[0];
 // let btn4 = d.getElementsByClassName('btn4')[0];
-// let btn5 = d.getElementsByClassName('btn5')[0];
+let btn5 = d.getElementsByClassName("btn5")[0];
 // let remove = d.getElementsByClassName('remove')[0];
 // let para = d.querySelector('p');
 
@@ -53,10 +53,10 @@
 //   para.classList.remove('js');
 // })
 
-let arr = [0, 1, 2, 3, 4, 5];
-console.log(arr[4]);
-let arr_2 = { ...arr };
-console.log(arr_2);
-arr_2[4] = 10;
-console.log(arr);
-console.log(typeof arr);
+// let arr = [0, 1, 2, 3, 4, 5];
+// console.log(arr[4]);
+// let arr_2 = { ...arr };
+// console.log(arr_2);
+// arr_2[4] = 10;
+// console.log(arr);
+// console.log(typeof arr);

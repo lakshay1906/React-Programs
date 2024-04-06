@@ -2,9 +2,11 @@ import React from "react";
 import Card from "../Card";
 import { useContext } from "react";
 import { DataContext } from "../../Contexts/DataContext";
+import { OnCartClick } from "../../Contexts/OnCartClickFunction";
 
 const Skincare_Bags = () => {
   const data = useContext(DataContext);
+  const OnCartClickFunction = useContext(OnCartClick);
 
   return (
     <>
@@ -24,6 +26,7 @@ const Skincare_Bags = () => {
                 productName={ele.title}
                 desc={ele.description}
                 price={ele.price}
+                onCartClick={OnCartClickFunction}
               />
             );
           })}

@@ -57,9 +57,6 @@ function Scissor_func() {
     result.innerText = "Its a tie....Try Again!!";
     tie++;
   }
-  // win_res.innerText = localStorage.getItem('Win');
-  // tie_res.innerText = localStorage.getItem('Win');
-  // lose_res.innerText = localStorage.getItem('Win');
   win_res.innerText = win;
   tie_res.innerText = tie;
   lose_res.innerText = lose;

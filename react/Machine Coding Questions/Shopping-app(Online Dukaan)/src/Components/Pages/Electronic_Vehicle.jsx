@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { DataContext } from "../../Contexts/DataContext";
 import Card from "../Card";
+import { OnCartClick } from "../../Contexts/OnCartClickFunction";
 
 const Electronic_Vehicle = () => {
-  // console.log("Radhe Radhe");
-
   const data = useContext(DataContext);
-  console.log(data);
+  const OnCartClickFunction = useContext(OnCartClick);
+
   return (
     <>
       <div className="flex flex-wrap px-4 gap-x-2 gap-y-4 py-10 overflow-y-auto">
@@ -28,6 +28,7 @@ const Electronic_Vehicle = () => {
                 productName={ele.title}
                 desc={ele.description}
                 price={ele.price}
+                onCartClick={OnCartClickFunction}
               />
             );
           })}

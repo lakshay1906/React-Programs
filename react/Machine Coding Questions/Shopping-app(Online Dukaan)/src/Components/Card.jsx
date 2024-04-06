@@ -1,36 +1,13 @@
-import React, { useContext, useRef, useState } from "react";
-import { CartCounter } from "../Contexts/CartCounter";
-import { ProductObj } from "../Contexts/ProductObj";
-import { DataContext } from "../Contexts/DataContext";
-import { CartData } from "../Contexts/CartData";
+import React from "react";
 
 const Card = (props) => {
-  const { counter, setCounter } = useContext(CartCounter);
-  // const CartData = useContext(CartData);
-
-  const data = useContext(DataContext);
-  let productName = "";
-  let arr = useRef([]);
-
-  function onCartClick(e) {
-    productName = e.target.parentNode.innerText.split("\n")[1];
-    arr.current.push(
-      ...data.products.filter((ele) => ele.title === productName)
-    );
-    counter >= 20
-      ? alert("Your cart is full now!!\nPlease proceed to checkout first")
-      : setCounter(arr.current.length);
-    console.log(arr);
-  }
-
   return (
     <>
       <div
         id="cardContainer"
         className="w-56 bg-gray-500 text-white flex flex-col m-auto rounded pt-3 p-x-2 gap-y-1"
-        key={props.productName}
+        key={props.keys}
       >
-        {/* <h1>{cartData.length}</h1> */}
         <div className="w-11/12 m-auto h-36">
           <img
             src={props.imgLink}
@@ -52,7 +29,7 @@ const Card = (props) => {
         <button
           className="m-auto text-xl bg-blue-800 rounded w-full h-8"
           onClick={(e) => {
-            onCartClick(e);
+            props.onCartClick(e);
           }}
         >
           Add to Cart

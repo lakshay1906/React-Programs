@@ -11,7 +11,7 @@ let start_btn = d.getElementsByClassName("start")[0];
 let scoreboard = d.getElementsByClassName("scoreboard")[0];
 let result = d.getElementsByClassName("result")[0];
 let try_again = d.getElementsByClassName("try-again")[0];
-console.dir(dis_op1);
+// console.dir(dis_op1);
 
 let question = [
   "_______ is the smallest unit of data in a computer ?",
@@ -209,7 +209,7 @@ function check() {
   if (i === 0) {
     dis_op1.addEventListener("click", () => {
       console.log("option 1 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op1.classList.add("wrong_js");
@@ -220,7 +220,7 @@ function check() {
     });
     dis_op2.addEventListener("click", () => {
       console.log("option 2 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op2.classList.add("wrong_js");
@@ -232,7 +232,7 @@ function check() {
     dis_op3.addEventListener("click", () => {
       console.log("option 3 clicked! " + i);
       temp++;
-      console.log("Right " + i);
+      // console.log("Right " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op3.classList.add("right_js");
@@ -243,7 +243,7 @@ function check() {
     });
     dis_op4.addEventListener("click", () => {
       console.log("option 4 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op4.classList.add("wrong_js");
@@ -252,10 +252,11 @@ function check() {
       dis_op3.disabled = true;
       dis_op4.disabled = true;
     });
-  } else if (i === 1) {
+  }
+  if (i === 1) {
     dis_op1.addEventListener("click", () => {
       console.log("option 1 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op1.classList.add("wrong_js");
@@ -266,7 +267,7 @@ function check() {
     });
     dis_op2.addEventListener("click", () => {
       console.log("option 2 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op2.classList.add("wrong_js");
@@ -278,7 +279,7 @@ function check() {
     dis_op3.addEventListener("click", () => {
       console.log("option 3 clicked! " + i);
       temp++;
-      console.log("Right " + i);
+      // console.log("Right " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op3.classList.add("right_js");
@@ -289,7 +290,7 @@ function check() {
     });
     dis_op4.addEventListener("click", () => {
       console.log("option 4 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op4.classList.add("wrong_js");
@@ -298,10 +299,11 @@ function check() {
       dis_op3.disabled = true;
       dis_op4.disabled = true;
     });
-  } else if (i === 2) {
+  }
+  if (i === 2) {
     dis_op1.addEventListener("click", () => {
       console.log("option 1 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op1.classList.add("wrong_js");
@@ -312,7 +314,7 @@ function check() {
     });
     dis_op2.addEventListener("click", () => {
       console.log("option 2 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op2.classList.add("wrong_js");
@@ -324,7 +326,7 @@ function check() {
     dis_op3.addEventListener("click", () => {
       console.log("option 3 clicked! " + i);
       temp++;
-      console.log("Right " + i);
+      // console.log("Right " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op3.classList.add("right_js");
@@ -335,7 +337,7 @@ function check() {
     });
     dis_op4.addEventListener("click", () => {
       console.log("option 4 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op4.classList.add("wrong_js");
@@ -344,10 +346,11 @@ function check() {
       dis_op3.disabled = true;
       dis_op4.disabled = true;
     });
-  } else if (i === 3) {
+  }
+  if (i === 3) {
     dis_op1.addEventListener("click", () => {
       console.log("option 1 clicked! " + i);
-      console.log("wrong " + i);
+      // console.log("wrong " + i);
       p.classList.add("explaination_js");
       next_btn.classList.remove("next_js");
       dis_op1.classList.add("wrong_js");
@@ -390,7 +393,8 @@ function check() {
       dis_op3.disabled = true;
       dis_op4.disabled = true;
     });
-  } else if (i === 4) {
+  }
+  if (i === 4) {
     dis_op1.addEventListener("click", () => {
       console.log("option 1 clicked! " + i);
       temp++;
@@ -440,11 +444,12 @@ function check() {
 }
 next_btn.addEventListener("click", () => {
   quiz();
-  if (i == 1) {
-    console.log(`question exist ${i}`);
-  } else {
-    console.log(`question doesn't exist ${i}`);
-  }
+  // if (i == 1) {
+  //   console.log(`question exist ${i}`);
+  // } else {
+  //   console.log(`question doesn't exist ${i}`);
+  // }
+  console.log(temp);
   next_btn.innerText = "Next";
   if (i >= question.length) {
     card.classList.add("card_js");
@@ -480,6 +485,10 @@ try_again.addEventListener("click", () => {
   dis_op2.innerText = "Option2";
   dis_op3.innerText = "Option3";
   dis_op4.innerText = "Option4";
+  dis_op1.disabled = false;
+  dis_op2.disabled = false;
+  dis_op3.disabled = false;
+  dis_op4.disabled = false;
   p.classList.remove("explaination_js");
   next_btn.classList.add("next_js");
   dis_op1.classList.remove("right_js");
@@ -492,8 +501,4 @@ try_again.addEventListener("click", () => {
   dis_op4.classList.remove("wrong_js");
   start_btn.classList.remove("start_js");
   next_btn.innerText = "START";
-  dis_op1.disabled = false;
-  dis_op2.disabled = false;
-  dis_op3.disabled = false;
-  dis_op4.disabled = false;
 });

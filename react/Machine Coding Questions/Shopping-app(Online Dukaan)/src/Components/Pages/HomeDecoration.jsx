@@ -2,9 +2,11 @@ import React from "react";
 import Card from "../Card";
 import { useContext } from "react";
 import { DataContext } from "../../Contexts/DataContext";
+import { OnCartClick } from "../../Contexts/OnCartClickFunction";
 
 const HomeDecoration = () => {
   const data = useContext(DataContext);
+  const OnCartClickFunction = useContext(OnCartClick);
 
   return (
     <>
@@ -26,6 +28,7 @@ const HomeDecoration = () => {
                 productName={ele.title}
                 desc={ele.description}
                 price={ele.price}
+                onCartClick={OnCartClickFunction}
               />
             );
           })}
