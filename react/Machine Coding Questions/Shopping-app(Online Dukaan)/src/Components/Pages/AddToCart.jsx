@@ -4,7 +4,7 @@ import CartObject from "../CartObject";
 import { DataContext } from "../../Contexts/DataContext";
 
 const AddToCart = () => {
-  const ProductArr = useContext(ProductObj);
+  const { productObj, cartCounter, setCartCounter } = useContext(ProductObj);
   const data = useContext(DataContext);
   let eleName = "";
 
@@ -16,29 +16,36 @@ const AddToCart = () => {
       )
     );
     console.log(eleName);
-    // e.target.parentElement.parentElement.remove();
+    e.target.parentElement.parentElement.remove();
   }
 
   return (
     <>
-      {ProductArr.current.length && (
-        <div className="flex flex-col justify-center mt-8 w-full items-center gap-y-5 mb-10">
-          {ProductArr.current.map((ele) => {
-            return (
-              <CartObject
-                keys={ele.id}
-                imgLink={ele.thumbnail}
-                title={ele.title}
-                desc={ele.description}
-                price={ele.price}
-                discount={ele.discountPercentage}
-                onDelete={onDelete}
-              />
-            );
-          })}
+      {productObj.current.length && (
+        <div className="flex justify-left items-center gap-x-5 my-16">
+          <div className="flex flex-col justify-center mt-5 ml-5 w-[50rem] items-center gap-y-5 border border-black ">
+            {productObj.current.map((ele) => {
+              return (
+                <CartObject
+                  key={ele.id}
+                  value={ele.id}
+                  imgLink={ele.thumbnail}
+                  title={ele.title}
+                  desc={ele.description}
+                  price={ele.price}
+                  discount={ele.discountPercentage}
+                  onDelete={onDelete}
+                />
+              );
+            })}
+          </div>
+          <div
+            id="billing"
+            className="border border-green-800 w-[30rem] h-[calc(100vh-12rem)] fixed top-[5.3rem] right-5"
+          ></div>
         </div>
       )}
-      {!ProductArr.current.length && (
+      {!productObj.current.length && (
         <div className="text-4xl text-center text-[#292929] font-semibold">
           You haven't added anything in cart
         </div>

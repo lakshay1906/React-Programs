@@ -3,9 +3,12 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 
 const CartObject = (props) => {
   return (
-    <div className="border border-black bg-[#292929] text-white w-11/12 h-[30%] flex justify-center items-center py-4 gap-x-4 rounded-2xl mx-[14%]">
-      <div className="max-w-60 border border-white">
-        <img src={props.imgLink} alt="" className="w-full h-full" />
+    <div
+      id={props.value}
+      className="border border-black bg-[#292929] text-white w-full max-h-68 flex justify-center items-center py-4 gap-x-4 rounded-2xl px-2"
+    >
+      <div className="max-w-60 border border-white mx-2">
+        <img src={props.imgLink} alt="" className="w-full" />
       </div>
       <div className="w-9/12 h-full text-xl gap-y-1 flex flex-col overflow-y-auto items-start">
         <div>

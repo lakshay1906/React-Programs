@@ -5,7 +5,7 @@ import { counterContext } from "../Context/CounterContext";
 const Options = (props) => {
   const answer = useContext(CorrectAnswer);
   const cardstates = useContext(counterContext);
-  const [result, setResult] = useState(0);
+  const { result, setResult } = useContext(counterContext);
 
   return (
     <button

@@ -10,7 +10,7 @@ const HomeDecoration = () => {
 
   return (
     <>
-      <div className="flex flex-wrap px-4 gap-x-2 gap-y-4 py-10 overflow-y-auto">
+      <div className="flex flex-wrap px-4 gap-x-2 gap-y-4 py-10 overflow-y-auto mt-16">
         {data.products
           .filter((ele) => {
             return (
@@ -22,7 +22,8 @@ const HomeDecoration = () => {
           .map((ele) => {
             return (
               <Card
-                keys={ele.id}
+                key={ele.id}
+                keyId={ele.id}
                 imgLink={ele.thumbnail}
                 brandName={ele.brand}
                 productName={ele.title}

@@ -7,7 +7,10 @@ function App() {
 
   return (
     <>
-      <div id="categories" className="flex flex-col items-center font-semibold">
+      <div
+        id="categories"
+        className="flex flex-col items-center font-semibold mt-16"
+      >
         <h1 className="text-[2.4rem] font-bold underline-offset-4 underline">
           Categories
         </h1>

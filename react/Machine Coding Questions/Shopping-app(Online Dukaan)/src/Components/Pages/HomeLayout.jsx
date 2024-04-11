@@ -9,8 +9,9 @@ const HomeLayout = () => {
   console.log("Radhe Radhe");
   const [data, setData] = useState({});
   const [showCards, setShowCards] = useState(false);
+  const [cartCounter, setCartCounter] = useState(0);
   const productObj = useRef([]);
-  let productName = "";
+  let productId = "";
 
   async function fetchData() {
     let rawData = await fetch("https://dummyjson.com/products?limit=100");
@@ -24,21 +25,22 @@ const HomeLayout = () => {
   }, []);
 
   function onCartClick(e) {
-    productName = e.target.parentNode.innerText.split("\n")[1];
+    productId = e.target.parentNode.id;
     productObj.current.push(
-      ...data.products.filter((ele) => ele.title === productName)
+      ...data.products.filter((ele) => ele.id == productId)
     );
-    console.log(productObj.current);
-    // counter >= 20
-    //   ? alert("Your cart is full now!!\nPlease proceed to checkout first")
-    //   : setCounter(ProductArr.length);
+    cartCounter >= 20
+      ? alert("Your cart is full now!!\nPlease proceed to checkout first")
+      : setCartCounter(cartCounter + 1);
   }
 
   return (
     <>
       {showCards && (
         <DataContext.Provider value={data}>
-          <ProductObj.Provider value={productObj}>
+          <ProductObj.Provider
+            value={{ productObj, cartCounter, setCartCounter }}
+          >
             <OnCartClick.Provider value={onCartClick}>
               <Navbar />
               <Outlet />
