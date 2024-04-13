@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import QuizContext from "../Context/QuizContext";
 import { shuffleFunction } from "../Context/ShuffleFunctionContext";
@@ -16,10 +16,10 @@ const HomeLayout = () => {
   const [bgColor, setbgColor] = useState("none");
   const [error, setError] = useState(false);
 
-  function shuffle() {
+  function shuffle(data, counter) {
     let arr = [
-      apiData.results[quesCounter].correct_answer,
-      ...apiData.results[quesCounter].incorrect_answers,
+      data.results[counter].correct_answer,
+      ...data.results[counter].incorrect_answers,
     ];
     for (let i = arr.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
@@ -27,6 +27,7 @@ const HomeLayout = () => {
       arr[i] = arr[j];
       arr[j] = temp;
     }
+    console.log(counter);
     return arr;
   }
 

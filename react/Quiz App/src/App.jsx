@@ -18,6 +18,7 @@ function App() {
     setDifficulty,
     setApiData,
     setLoad,
+    quesCounter,
     setQuesCounter,
     setScore,
     setShuffledArray,
@@ -35,7 +36,7 @@ function App() {
     console.log(data);
     setLoad(true);
     setApiData(data);
-    setShuffledArray(shuffle());
+    setShuffledArray(shuffle(data, quesCounter));
   }
 
   return (
