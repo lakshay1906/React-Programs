@@ -4,6 +4,7 @@ import Categories from "./Data/Category";
 import { FaHandPointDown } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import QuizContext from "./Context/QuizContext";
+import { shuffleFunction } from "./Context/ShuffleFunctionContext";
 
 function App() {
   console.log("Radhe Radhe");
@@ -15,20 +16,27 @@ function App() {
     setCategoryValue,
     difficulty,
     setDifficulty,
-    apiData,
     setApiData,
-    quesCounter,
+    setLoad,
     setQuesCounter,
+    setScore,
+    setShuffledArray,
   } = useContext(QuizContext);
+  const shuffle = useContext(shuffleFunction);
 
-  // async function fetchData() {
-  //   const rawData = await fetch(
-  //     `https://opentdb.com/api.php?amount=${state.noQues}&category=${state.categoryValue}&difficulty=${state.difficulty}&type=multiple`
-  //   );
-  //   const data = await rawData.json();
-  //   dispatch({ type: "API_DATA", nextApiData: data });
-  //   console.log(data);
-  // }
+  async function fetchData() {
+    setQuesCounter(0);
+    setScore(0);
+    console.log(noQues, categoryValue, difficulty);
+    const rawData = await fetch(
+      `https://opentdb.com/api.php?amount=${noQues}&category=${categoryValue}&difficulty=${difficulty}&type=multiple`
+    );
+    const data = await rawData.json();
+    console.log(data);
+    setLoad(true);
+    setApiData(data);
+    setShuffledArray(shuffle());
+  }
 
   return (
     <div className="h-screen w-full flex justify-center items-center">
@@ -37,7 +45,7 @@ function App() {
         className="w-4/12  h-full flex justify-center items-center"
       >
         <img
-          src="./src/assets/quiz_img.jpg"
+          src="https://static.vecteezy.com/system/resources/previews/003/206/208/non_2x/quiz-time-neon-signs-style-text-free-vector.jpg"
           alt=""
           className="w-11/12 rounded-2xl img-shadow transition-all"
         />
@@ -55,9 +63,7 @@ function App() {
         >
           <form
             action=""
-            onSubmit={(e) => {
-              // e.preventDefault();
-            }}
+            onSubmit={(e) => e.preventDefault()}
             className="flex flex-col gap-y-6"
           >
             <div id="NumberOfQues" className="flex flex-col gap-1">
@@ -68,13 +74,7 @@ function App() {
                 max={50}
                 name="quesAmount"
                 className="border border-black px-2 py-1"
-                onChange={(e) =>
-                  // dispatch({
-                  //   type: "NUMBER_OF_QUESTION",
-                  //   nextNoQues: e.target.value,
-                  // })
-                  setNoQues(e.target.value)
-                }
+                onChange={(e) => setNoQues(e.target.value)}
                 value={noQues}
                 required
               />
@@ -84,13 +84,7 @@ function App() {
               <select
                 name="category"
                 className="border border-black px-2 py-1"
-                onChange={(e) => {
-                  setCategoryValue(e.target.value);
-                  // dispatch({
-                  //   type: "CATEGORY_VALUE",
-                  //   nextCategoryValue: e.target.value,
-                  // });
-                }}
+                onChange={(e) => setCategoryValue(e.target.value)}
                 required
               >
                 {Categories.map((ele) => (
@@ -107,18 +101,12 @@ function App() {
               <select
                 name="difficulty"
                 className="border border-black px-2 py-1"
-                onChange={(e) =>
-                  // dispatch({
-                  //   type: "DIFFICULTY",
-                  //   nextDifficulty: e.target.value,
-                  // })
-                  setDifficulty(e.target.value)
-                }
+                onChange={(e) => setDifficulty(e.target.value)}
                 required
               >
                 <Options title={"Easy"} value={"easy"} />
                 <Options title={"Medium"} value={"medium"} />
-                <Options title={"Difficult"} value={"difficult"} />
+                <Options title={"Hard"} value={"hard"} />
               </select>
             </div>
             <NavLink to={"/quiz"} className="w-fit m-auto">
@@ -126,6 +114,7 @@ function App() {
                 type="submit"
                 value={"Generate Quiz"}
                 className="bg-slate-700 text-white text-[1.4rem] w-fit m-auto px-3 py-1 rounded-lg cursor-pointer hover:scale-105 transition-all img-shadow "
+                onMouseDown={() => fetchData()}
               />
             </NavLink>
           </form>
