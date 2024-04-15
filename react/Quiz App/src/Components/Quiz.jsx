@@ -37,12 +37,14 @@ const Quiz = () => {
   }
 
   function onNextClick(e) {
+    console.log(quesCounter);
     if (!disable) {
       setError(true);
     } else {
       setQuesCounter(quesCounter + 1);
       setDisable(false);
       setShuffledArray(shuffle(apiData, quesCounter));
+      console.log("onNextClick");
     }
   }
 

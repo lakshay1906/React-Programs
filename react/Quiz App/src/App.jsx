@@ -37,6 +37,7 @@ function App() {
     setLoad(true);
     setApiData(data);
     setShuffledArray(shuffle(data, quesCounter));
+    console.log("Data fetched");
   }
 
   return (

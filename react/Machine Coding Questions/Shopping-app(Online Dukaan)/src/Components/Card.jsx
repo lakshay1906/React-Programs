@@ -17,7 +17,7 @@ const Card = (props) => {
         className="w-56 bg-gray-500 text-white flex flex-col m-auto rounded"
       >
         <NavLink
-          // to={"/productPage"}
+          to={"/productPage"}
           className=" w-full h-full flex flex-col m-auto gap-y-2 mb-1 border border-white pt-3"
         >
           <div className="w-11/12 m-auto h-36">
