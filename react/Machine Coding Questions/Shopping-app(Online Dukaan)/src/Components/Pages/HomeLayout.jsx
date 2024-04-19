@@ -14,7 +14,7 @@ const HomeLayout = () => {
   const [productId, setProductId] = useState(0);
   const [cartProducts, setCardProducts] = useState([]);
   const [productObj, setProductObj] = useState([]);
-  const [disableCartBtn, setdiableCartBtn] = useState(false);
+  const [disableCartBtn, setDisableCartBtn] = useState(false);
 
   async function fetchData() {
     let rawData = await fetch("https://dummyjson.com/products?limit=100");
@@ -27,13 +27,15 @@ const HomeLayout = () => {
     fetchData();
   }, []);
 
-  function onCartClick(e) {
-    let productId = e.target.parentNode.id;
-    productObj.push(...data.products.filter((ele) => ele.id == productId));
+  function onCartClick(id, e) {
+    productObj.push(...data.products.filter((ele) => ele.id == id));
     cartCounter >= 20
       ? alert("Your cart is full now!!\nPlease proceed to checkout first")
       : setCartCounter(cartCounter + 1);
+    setDisableCartBtn(true);
+    e.target.disabled = true;
   }
+  // when I click on add to cart button that button get disabled in second time. why so ?
 
   function removeElementById(id) {
     let index = productObj.findIndex((obj) => obj.id === id);
@@ -56,6 +58,7 @@ const HomeLayout = () => {
               setProductId,
               cartProducts,
               disableCartBtn,
+              setDisableCartBtn,
             }}
           >
             <OnCartClick.Provider value={onCartClick}>
@@ -72,3 +75,5 @@ const HomeLayout = () => {
 };
 
 export default HomeLayout;
+
+// replace add to cart from delete from cart

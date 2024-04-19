@@ -5,9 +5,6 @@ import { ProductObj } from "../Contexts/ProductObj";
 const Card = (props) => {
   const { setProductId } = useContext(ProductObj);
 
-  // function onCardClick(e) {
-  //   setProductId(e)
-  // }
   return (
     <>
       <div
@@ -43,7 +40,7 @@ const Card = (props) => {
         <button
           className="m-auto text-xl bg-blue-800 rounded w-full h-8 -mt-1"
           onClick={(e) => {
-            props.onCartClick(e);
+            props.onCartClick(props.id, e);
           }}
         >
           Add to Cart

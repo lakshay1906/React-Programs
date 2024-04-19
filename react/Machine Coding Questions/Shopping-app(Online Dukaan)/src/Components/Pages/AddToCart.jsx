@@ -1,15 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProductObj } from "../../Contexts/ProductObj";
 import CartObject from "../CartObject";
-import { DataContext } from "../../Contexts/DataContext";
 import { onDeleteFunction } from "../../Contexts/DeleteFromCart";
 
 const AddToCart = () => {
-  const { productObj, cartCounter, setCartCounter } = useContext(ProductObj);
-  const data = useContext(DataContext);
+  const { productObj } = useContext(ProductObj);
   const removeElementById = useContext(onDeleteFunction);
-  const onDelete = useContext(onDeleteFunction);
-  let eleName = "";
   const [tax, setTax] = useState(0);
 
   useEffect(() => {
@@ -109,4 +105,4 @@ const AddToCart = () => {
 
 export default AddToCart;
 
-// Add reducer method to calculate the total price.
+// Add a proceed to buy button after bill
