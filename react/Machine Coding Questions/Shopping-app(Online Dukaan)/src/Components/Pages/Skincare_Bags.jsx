@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../Card";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "../../Contexts/DataContext";
 import { OnCartClick } from "../../Contexts/OnCartClickFunction";
 
@@ -21,7 +21,7 @@ const Skincare_Bags = () => {
             return (
               <Card
                 key={ele.id}
-                keyId={ele.id}
+                id={ele.id}
                 imgLink={ele.thumbnail}
                 brandName={ele.brand}
                 productName={ele.title}

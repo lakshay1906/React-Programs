@@ -1,53 +1,106 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ProductObj } from "../../Contexts/ProductObj";
 import CartObject from "../CartObject";
 import { DataContext } from "../../Contexts/DataContext";
+import { onDeleteFunction } from "../../Contexts/DeleteFromCart";
 
 const AddToCart = () => {
   const { productObj, cartCounter, setCartCounter } = useContext(ProductObj);
   const data = useContext(DataContext);
+  const removeElementById = useContext(onDeleteFunction);
+  const onDelete = useContext(onDeleteFunction);
   let eleName = "";
+  const [tax, setTax] = useState(0);
 
-  function onDelete(e) {
-    eleName = e.target.parentElement.innerText.split("\n")[0];
-    console.log(
-      ...data.products.filter(
-        (ele) => ele.title.toLowerCase() === eleName.toLowerCase()
+  useEffect(() => {
+    setTax(
+      Math.trunc(
+        (productObj.map((ele) => ele.price).reduce((a, b) => a + b, 0) * 18) /
+          100
       )
     );
-    console.log(eleName);
-    e.target.parentElement.parentElement.remove();
-  }
+  }, []);
 
   return (
     <>
-      {productObj.current.length && (
-        <div className="flex justify-left items-center gap-x-5 my-16">
-          <div className="flex flex-col justify-center mt-5 ml-5 w-[50rem] items-center gap-y-5 border border-black ">
-            {productObj.current.map((ele) => {
-              return (
-                <CartObject
-                  key={ele.id}
-                  value={ele.id}
-                  imgLink={ele.thumbnail}
-                  title={ele.title}
-                  desc={ele.description}
-                  price={ele.price}
-                  discount={ele.discountPercentage}
-                  onDelete={onDelete}
-                />
-              );
-            })}
+      {productObj.length ? (
+        <div className="flex justify-left items-center gap-x-5 mt-16">
+          <div className="mt-5 ml-5 w-7/12 h-[calc(100vh-7rem)] items-center overflow-y-auto">
+            <div className="w-full px-2 flex flex-col items-center justify-center gap-y-5">
+              {productObj.map((ele) => {
+                return (
+                  <CartObject
+                    key={ele.id}
+                    id={ele.id}
+                    imgLink={ele.thumbnail}
+                    title={ele.title}
+                    desc={ele.description}
+                    price={ele.price}
+                    rating={ele.rating}
+                    stock={ele.stock}
+                    discount={ele.discountPercentage}
+                    onDelete={removeElementById}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div
             id="billing"
-            className="border border-green-800 w-[30rem] h-[calc(100vh-12rem)] fixed top-[5.3rem] right-5"
-          ></div>
+            className="bg-[#292929] w-[37%] h-[calc(100vh-8rem)] text-white text-xl overflow-y-auto"
+          >
+            <h2 className="my-2 ml-5">
+              <span className=" underline underline-offset-4">Total Bill</span>{" "}
+              :
+            </h2>
+            <div id="purchasedItems">
+              {productObj.map((ele) => {
+                return (
+                  <div key={ele.id} className="flex justify-between mx-5">
+                    <span>{ele.title}</span>
+                    <span>
+                      = {"  "}
+                      {ele.price}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="w-[95%] h-1 bg-slate-400 m-auto rounded-2xl my-2"></div>
+            <div className="flex justify-between mx-5">
+              <span>Amount Before Tax</span>
+              <span>
+                = {"  "}
+                {productObj.map((ele) => ele.price).reduce((a, b) => a + b, 0)}
+              </span>
+            </div>
+            <div className="w-[95%] h-1 bg-slate-400 m-auto rounded-2xl my-2"></div>
+            <div className="flex justify-between mx-5">
+              <span>(18% GST)</span>
+              <span>
+                = {"  "}
+                {tax}
+              </span>
+            </div>
+            <div className="w-[95%] h-1 bg-slate-400 m-auto rounded-2xl my-2"></div>
+            <div className="flex justify-between mx-5 mb-4">
+              <span>Grand Total</span>
+              <span>
+                = {"  "}
+                <span className="underline underline-offset-4 decoration-double decoration-green-500 ">
+                  {productObj
+                    .map((ele) => ele.price)
+                    .reduce((a, b) => a + b, 0) + tax}
+                </span>
+              </span>
+            </div>
+            <div className="w-[30%] h-1 bg-slate-400 m-auto rounded-2xl my-1"></div>
+            <div className="w-[30%] h-1 bg-slate-400 m-auto rounded-2xl my-1 mb-3"></div>
+          </div>
         </div>
-      )}
-      {!productObj.current.length && (
-        <div className="text-4xl text-center text-[#292929] font-semibold">
-          You haven't added anything in cart
+      ) : (
+        <div className="text-5xl text-center text-[#292929] font-semibold w-full h-[calc(100vh-1.5rem)] flex justify-center items-center">
+          Cart is empty !!
         </div>
       )}
     </>
@@ -55,3 +108,5 @@ const AddToCart = () => {
 };
 
 export default AddToCart;
+
+// Add reducer method to calculate the total price.

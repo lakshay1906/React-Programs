@@ -1,16 +1,29 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [count, setCount] = useState([]);
+  const [counter, setCounter] = useState(0);
+  // setCount((pre) => pre.push(5, 6, 7, 8));
+  useEffect(() => {
+    count.push(1, 2, 3, 4);
+  }, []);
   return (
     <>
-      <div
-        id="container"
-        className="w-full h-screen flex justify-center items-center"
-      >
-        <div className="w-56 h-56 border-8 rounded-[500%] border-t-black animate-spin"></div>
+      <div>
+        {count.map((ele) => (
+          <span key={ele}>{ele}</span>
+        ))}
       </div>
+      <button
+        onClick={() => {
+          count.push(10);
+          console.log("Radhe Radhe");
+          setCounter(counter + 1);
+        }}
+      >
+        Button {counter}
+      </button>
     </>
   );
 }

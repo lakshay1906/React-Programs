@@ -5,19 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      body {
-        background-color: black;
+      /* body {
+        background-color: #292929;
       }
       p {
         color: white;
       }
       .js {
         color: red;
+      } */
+      .box {
+        width: 200px;
+        height: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: lightgray;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .expanded {
+        height: auto;
+        white-space: normal;
+        font-size: 18px;
       }
     </style>
   </head>
   <body>
-    <p>
+    <!-- <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nemo
       corporis qui laudantium. Ab labore excepturi maxime eveniet fuga
       blanditiis.
@@ -27,7 +44,27 @@
     <button class="btn3">btn3</button>
     <button class="btn4">btn4</button>
     <button class="btn5">btn5</button>
-    <button class="remove">remove</button>
-    <script src="demo.js"></script>
+    <button class="remove">remove</button> -->
+    <div class="box" id="expandableBox">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit, nisi
+      id accumsan fermentum, elit mi sollicitudin eros, eu tincidunt purus leo
+      sed nunc. Mauris nec mi in lectus gravida consequat. Vestibulum convallis
+      ultrices lacus, sed cursus nisl. Nam faucibus lacus vitae semper
+      fermentum. Nulla facilisi. Fusce nec risus pretium, consectetur enim id,
+      euismod velit. Suspendisse potenti. Vestibulum id est vel ligula ultrices
+      euismod. Integer auctor risus ut leo efficitur fermentum. Donec nec mauris
+      odio. Duis ac odio vel nulla finibus efficitur. Duis viverra fringilla
+      dapibus. Ut id tincidunt purus. Fusce convallis est justo, eu luctus
+      mauris tempus vel. Nulla facilisi.
+    </div>
+
+    <!-- <script src="demo.js"></script> -->
+    <script>
+      document
+        .getElementById("expandableBox")
+        .addEventListener("click", function () {
+          this.classList.toggle("expanded");
+        });
+    </script>
   </body>
 </html>

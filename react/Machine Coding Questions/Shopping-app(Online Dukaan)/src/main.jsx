@@ -15,6 +15,7 @@ import HomeDecoration from "./Components/Pages/HomeDecoration.jsx";
 import Skincare_Bags from "./Components/Pages/Skincare_Bags.jsx";
 import Wearables from "./Components/Pages/Wearables.jsx";
 import AddToCart from "./Components/Pages/AddToCart.jsx";
+import ProductPage from "./Components/Pages/ProductPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/skincare_Bags" element={<Skincare_Bags />} />
       <Route path="/wearables" element={<Wearables />} />
       <Route path="/addToCart" element={<AddToCart />} />
+      <Route path="/productPage" element={<ProductPage />} />
     </Route>
   )
 );

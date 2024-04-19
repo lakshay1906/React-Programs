@@ -9,7 +9,7 @@ function App() {
     <>
       <div
         id="categories"
-        className="flex flex-col items-center font-semibold mt-16"
+        className="flex flex-col items-center font-semibold mt-16 z-0"
       >
         <h1 className="text-[2.4rem] font-bold underline-offset-4 underline">
           Categories

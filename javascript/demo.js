@@ -1,3 +1,4 @@
+console.log("Radhe Radhe");
 // function hacker_terminal(data){
 //     return new Promise((resolve, reject)=>{
 //         setTimeout(()=>{
@@ -30,7 +31,7 @@ let d = document;
 // let btn2 = d.getElementsByClassName('btn2')[0];
 // let btn3 = d.getElementsByClassName('btn3')[0];
 // let btn4 = d.getElementsByClassName('btn4')[0];
-let btn5 = d.getElementsByClassName("btn5")[0];
+// let btn5 = d.getElementsByClassName("btn5")[0];
 // let remove = d.getElementsByClassName('remove')[0];
 // let para = d.querySelector('p');
 
@@ -60,3 +61,72 @@ let btn5 = d.getElementsByClassName("btn5")[0];
 // arr_2[4] = 10;
 // console.log(arr);
 // console.log(typeof arr);
+
+// Practice for add to cart
+
+// let arr = [1, 2, 3, 45, 6, 7];
+// let total = arr.reduce((a, b) => a + b, 0);
+// console.log(total);
+// let obj = [
+//   {
+//     Name: "a",
+//     value: 1,
+//   },
+//   {
+//     Name: "b",
+//     value: 2,
+//   },
+//   {
+//     Name: "c",
+//     value: 3,
+//   },
+//   {
+//     Name: "d",
+//     value: 4,
+//   },
+//   {
+//     Name: "e",
+//     value: 5,
+//   },
+//   {
+//     Name: "f",
+//     value: 10,
+//   },
+// ];
+
+// let objTotal = obj.map((ele) => ele.value).reduce((a, b) => a + b, 0);
+// console.log(objTotal);
+
+// Sample array of 10 objects
+// let array = [
+//   { id: 1, name: "Object 1" },
+//   { id: 2, name: "Object 2" },
+//   { id: 3, name: "Object 3" },
+//   { id: 4, name: "Object 4" },
+//   { id: 5, name: "Object 5" },
+//   { id: 6, name: "Object 6" },
+//   { id: 7, name: "Object 7" },
+//   { id: 8, name: "Object 8" },
+//   { id: 9, name: "Object 9" },
+//   { id: 10, name: "Object 10" },
+// ];
+
+// // Function to remove an element by object's id
+// function removeElementById(array, id) {
+//   let index = array.findIndex((obj) => obj.id === id);
+//   array.splice(index, 1);
+//   console.log(array);
+// }
+
+// removeElementById(array, 8);
+
+function toggleDescription(element) {
+  const fullDescription = element.nextElementSibling;
+  if (fullDescription.classList.contains("hidden")) {
+    fullDescription.classList.remove("hidden");
+    element.classList.add("hidden");
+  } else {
+    fullDescription.classList.add("hidden");
+    element.classList.remove("hidden");
+  }
+}

@@ -6,6 +6,9 @@ export default {
       scale: {
         115: "1.15",
       },
+      boxShadow: {
+        normalShadow: "0px 0px 10px #000",
+      },
     },
   },
   plugins: [],

@@ -8,7 +8,7 @@ const Navbar = () => {
   const { cartCounter } = useContext(ProductObj);
   return (
     <>
-      <div className="bg-slate-800 text-white w-full h-16 flex items-center justify-between px-5 cursor-default fixed top-0">
+      <div className="bg-slate-800 text-white w-full h-16 flex items-center justify-between px-5 cursor-default fixed top-0 z-10">
         <div className="w-72 font-semibold">
           <NavLink to="" className={"flex items-center justify-between w-full"}>
             <FcShop size="2rem" className="cursor-pointer" />

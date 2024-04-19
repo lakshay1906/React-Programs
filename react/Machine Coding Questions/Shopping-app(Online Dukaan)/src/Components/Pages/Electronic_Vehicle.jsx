@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { DataContext } from "../../Contexts/DataContext";
 import Card from "../Card";
 import { OnCartClick } from "../../Contexts/OnCartClickFunction";
@@ -6,6 +6,7 @@ import { OnCartClick } from "../../Contexts/OnCartClickFunction";
 const Electronic_Vehicle = () => {
   const data = useContext(DataContext);
   const OnCartClickFunction = useContext(OnCartClick);
+  const [page, setPage] = useState(1);
 
   return (
     <>
@@ -19,11 +20,12 @@ const Electronic_Vehicle = () => {
               ele.category === "motorcycle"
             );
           })
+          .slice(page * 10 - 10, page * 10)
           .map((ele) => {
             return (
               <Card
                 key={ele.id}
-                keyId={ele.id}
+                id={ele.id}
                 imgLink={ele.thumbnail}
                 brandName={ele.brand}
                 productName={ele.title}
@@ -33,6 +35,33 @@ const Electronic_Vehicle = () => {
               />
             );
           })}
+      </div>
+      <div
+        id="pages"
+        className="bg-[#292929] w-fit h-fit m-auto mb-9 flex justify-center gap-x-5 items-center text-xl rounded-3xl select-none px-10 py-px"
+      >
+        {[
+          ...Array(
+            Math.ceil(
+              data.products.filter((ele) => {
+                return (
+                  ele.category === "smartphones" ||
+                  ele.category === "laptops" ||
+                  ele.category === "automotive" ||
+                  ele.category === "motorcycle"
+                );
+              }).length / 10
+            )
+          ),
+        ].map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setPage(idx + 1)}
+            className="text-xl m-1 bg-white px-2 rounded-md"
+          >
+            {idx + 1}
+          </button>
+        ))}
       </div>
     </>
   );
