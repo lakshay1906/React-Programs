@@ -15,7 +15,7 @@ const AddToCart = () => {
           100
       )
     );
-  }, []);
+  }, [productObj]);
 
   return (
     <>
@@ -35,6 +35,7 @@ const AddToCart = () => {
                     rating={ele.rating}
                     stock={ele.stock}
                     discount={ele.discountPercentage}
+                    quantity={ele.qty}
                     onDelete={removeElementById}
                   />
                 );
@@ -56,7 +57,7 @@ const AddToCart = () => {
                     <span>{ele.title}</span>
                     <span>
                       = {"  "}
-                      {ele.price}
+                      {ele.price * ele.qty}
                     </span>
                   </div>
                 );

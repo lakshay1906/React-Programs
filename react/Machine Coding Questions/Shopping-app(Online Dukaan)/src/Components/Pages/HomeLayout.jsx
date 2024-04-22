@@ -5,6 +5,7 @@ import { DataContext } from "../../Contexts/DataContext";
 import { ProductObj } from "../../Contexts/ProductObj";
 import { OnCartClick } from "../../Contexts/OnCartClickFunction";
 import { onDeleteFunction } from "../../Contexts/DeleteFromCart";
+import { onQuantityChange } from "../../Contexts/onQuantityChangeFunction";
 
 const HomeLayout = () => {
   console.log("Radhe Radhe");
@@ -28,11 +29,14 @@ const HomeLayout = () => {
   }, []);
 
   function onCartClick(id, e) {
-    productObj.push(...data.products.filter((ele) => ele.id == id));
+    const obj = { ...data.products.filter((ele) => ele.id == id)[0] };
+    obj.qty = 1;
+    productObj.push(obj);
     cartCounter >= 20
       ? alert("Your cart is full now!!\nPlease proceed to checkout first")
       : setCartCounter(cartCounter + 1);
-    setDisableCartBtn(true);
+    console.log(productObj);
+    // setDisableCartBtn(true);
     e.target.disabled = true;
   }
   // when I click on add to cart button that button get disabled in second time. why so ?
@@ -45,6 +49,16 @@ const HomeLayout = () => {
       : setCartCounter(cartCounter - 1);
   }
 
+  function onQuantityChangeFunc(id, op) {
+    let index = -1;
+    productObj.forEach((ele, idx) => {
+      if (ele.id == id) index = idx;
+    });
+    const tempArr = productObj;
+    tempArr[index].qty += op;
+    setProductObj(tempArr);
+    console.log(tempArr);
+  }
   return (
     <>
       {showCards && (
@@ -63,8 +77,10 @@ const HomeLayout = () => {
           >
             <OnCartClick.Provider value={onCartClick}>
               <onDeleteFunction.Provider value={removeElementById}>
-                <Navbar />
-                <Outlet />
+                <onQuantityChange.Provider value={onQuantityChangeFunc}>
+                  <Navbar />
+                  <Outlet />
+                </onQuantityChange.Provider>
               </onDeleteFunction.Provider>
             </OnCartClick.Provider>
           </ProductObj.Provider>

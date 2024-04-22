@@ -1,9 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { IoIosStar } from "react-icons/io";
 import { ProductObj } from "../Contexts/ProductObj";
+import { onQuantityChange } from "../Contexts/onQuantityChangeFunction";
 
 const CartObject = (props) => {
+  // const { productObj } = useContext(ProductObj);
+  const onQuantityClick = useContext(onQuantityChange);
+
+  console.log(props.quantity);
+  // function onQuantityIncrease(e) {
+  //   const obj = productObj.filter((ele) => ele.id == props.id)[0];
+  //   if (obj.qty <= 5) obj.qty += 1;
+  //   console.log(obj);
+  // }
+  // function onQuantityDecrease() {
+  //   const obj = productObj.filter((ele) => ele.id == props.id)[0];
+  //   if (obj.qty >= 2) obj.qty -= 1;
+  //   console.log(obj);
+  // }
   return (
     <div
       id={props.id}
@@ -13,7 +28,7 @@ const CartObject = (props) => {
         <img
           src={props.imgLink}
           alt=""
-          className="w-full aspect-square object-contain "
+          className="w-full aspect-square object-contain"
         />
       </div>
       <div
@@ -32,6 +47,20 @@ const CartObject = (props) => {
         >
           {props.rating}
           <IoIosStar />
+        </div>
+        <div>
+          <label htmlFor="qty">Quantity</label>
+          <button
+            onClick={() => props.quantity > 1 && onQuantityClick(props.id, -1)}
+          >
+            ◀️
+          </button>
+          <span>{props.quantity}</span>
+          <button
+            onClick={() => props.quantity < 6 && onQuantityClick(props.id, +1)}
+          >
+            ▶️
+          </button>
         </div>
         <div>
           <h2
