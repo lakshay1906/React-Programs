@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { ProductObj } from "../Contexts/ProductObj";
 
 const Card = (props) => {
-  const { setProductId, disableCartBtn } = useContext(ProductObj);
+  const { setProductId } = useContext(ProductObj);
 
   return (
     <>
@@ -38,20 +38,12 @@ const Card = (props) => {
           <h2 className="m-auto text-lg">⭐⭐⭐⭐</h2>
         </NavLink>
         <div>
-          {disableCartBtn ? (
-            <button className="m-auto text-xl bg-red-700 rounded w-full h-8 -mt-1">
-              Remove From Cart
-            </button>
-          ) : (
-            <button
-              className="m-auto text-xl bg-blue-800 rounded w-full h-8 -mt-1"
-              onClick={(e) => {
-                props.onCartClick(props.id, e);
-              }}
-            >
-              Add to Cart
-            </button>
-          )}
+          <button
+            className="m-auto text-xl bg-blue-800 rounded w-full h-8 -mt-1"
+            onClick={() => props.onCartClick(props.id)}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </>
@@ -59,3 +51,7 @@ const Card = (props) => {
 };
 
 export default Card;
+
+// const obj = { ...data.products.filter((ele) => ele.id == id)[0] };
+//     obj.qty = 1;
+//     productObj.push(obj);

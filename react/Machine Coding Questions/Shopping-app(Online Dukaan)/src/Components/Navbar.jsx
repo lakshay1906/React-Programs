@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FcShop } from "react-icons/fc";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { ProductObj } from "../Contexts/ProductObj";
 
 const Navbar = () => {
-  const { cartCounter } = useContext(ProductObj);
+  const { productObj, nothing } = useContext(ProductObj);
+  const [cartCounter, setCartCounter] = useState(0);
+  useEffect(() => {
+    setCartCounter(productObj.length);
+  }, [nothing]);
+
   return (
     <>
       <div className="bg-slate-800 text-white w-full h-16 flex items-center justify-between px-5 cursor-default fixed top-0 z-10">

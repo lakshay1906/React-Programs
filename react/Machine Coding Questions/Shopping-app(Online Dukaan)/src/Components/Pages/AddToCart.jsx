@@ -4,18 +4,22 @@ import CartObject from "../CartObject";
 import { onDeleteFunction } from "../../Contexts/DeleteFromCart";
 
 const AddToCart = () => {
-  const { productObj } = useContext(ProductObj);
+  const { productObj, nothing } = useContext(ProductObj);
   const removeElementById = useContext(onDeleteFunction);
   const [tax, setTax] = useState(0);
 
   useEffect(() => {
+    // setPrice(productObj.map((ele) => ele.price * ele.qty));
     setTax(
       Math.trunc(
-        (productObj.map((ele) => ele.price).reduce((a, b) => a + b, 0) * 18) /
+        (productObj
+          .map((ele) => ele.price * ele.qty)
+          .reduce((a, b) => a + b, 0) *
+          18) /
           100
       )
     );
-  }, [productObj]);
+  }, [productObj, nothing]);
 
   return (
     <>
@@ -58,6 +62,7 @@ const AddToCart = () => {
                     <span>
                       = {"  "}
                       {ele.price * ele.qty}
+                      {`(${ele.qty})`}
                     </span>
                   </div>
                 );
@@ -68,7 +73,9 @@ const AddToCart = () => {
               <span>Amount Before Tax</span>
               <span>
                 = {"  "}
-                {productObj.map((ele) => ele.price).reduce((a, b) => a + b, 0)}
+                {productObj
+                  .map((ele) => ele.price * ele.qty)
+                  .reduce((a, b) => a + b, 0)}
               </span>
             </div>
             <div className="w-[95%] h-1 bg-slate-400 m-auto rounded-2xl my-2"></div>
@@ -86,13 +93,18 @@ const AddToCart = () => {
                 = {"  "}
                 <span className="underline underline-offset-4 decoration-double decoration-green-500 ">
                   {productObj
-                    .map((ele) => ele.price)
+                    .map((ele) => ele.price * ele.qty)
                     .reduce((a, b) => a + b, 0) + tax}
                 </span>
               </span>
             </div>
             <div className="w-[30%] h-1 bg-slate-400 m-auto rounded-2xl my-1"></div>
             <div className="w-[30%] h-1 bg-slate-400 m-auto rounded-2xl my-1 mb-3"></div>
+            <div className="w-full flex justify-center items-center py-1 mt-6">
+              <button className="m-auto w-fit bg-blue-600 rounded-md px-3 py-1 hover:scale-105 transition-all ">
+                Proceed to Purchase
+              </button>
+            </div>
           </div>
         </div>
       ) : (

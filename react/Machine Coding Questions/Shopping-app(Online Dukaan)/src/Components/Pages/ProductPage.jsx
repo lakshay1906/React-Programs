@@ -80,7 +80,9 @@ function ProductPage() {
                 <span>
                   <span className="font-semibold">Bank Offer</span> 5% Cashback
                   on Flipkart Axis Bank Card{" "}
-                  <span className="text-[#2874F0]">T&C</span>
+                  <span className="text-[#2874F0] hover:cursor-pointer">
+                    T&C
+                  </span>
                 </span>
               </li>
               <li className="flex gap-x-1 items-center">
@@ -92,7 +94,9 @@ function ProductPage() {
                   <span className="font-semibold">Bank Offer</span> 10% off on
                   Citi-branded Credit Card EMI Transactions, up to ₹2,000 on
                   orders of ₹5,000 and above{" "}
-                  <span className="text-[#2874F0]">T&C</span>
+                  <span className="text-[#2874F0] hover:cursor-pointer">
+                    T&C
+                  </span>
                 </span>
               </li>
               <li className="flex gap-x-1 items-center">
@@ -101,7 +105,9 @@ function ProductPage() {
                   <span className="font-semibold">Bank Offer</span> Flat ₹1,250
                   off on HDFC Bank Credit Card EMI Txns on 6 and 9 months
                   tenure, Min. Txn Value: ₹15,000{" "}
-                  <span className="text-[#2874F0]">T&C</span>
+                  <span className="text-[#2874F0] hover:cursor-pointer">
+                    T&C
+                  </span>
                 </span>
               </li>
               <li className="flex gap-x-1 items-center">
@@ -109,7 +115,9 @@ function ProductPage() {
                 <span>
                   <span className="font-semibold">Special Price</span> Get extra
                   62% off (price inclusive of cashback/coupon){" "}
-                  <span className="text-[#2874F0]">T&C</span>
+                  <span className="text-[#2874F0] hover:cursor-pointer">
+                    T&C
+                  </span>
                 </span>
               </li>
             </ul>

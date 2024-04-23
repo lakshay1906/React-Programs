@@ -1,14 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { IoIosStar } from "react-icons/io";
-import { ProductObj } from "../Contexts/ProductObj";
 import { onQuantityChange } from "../Contexts/onQuantityChangeFunction";
 
 const CartObject = (props) => {
-  // const { productObj } = useContext(ProductObj);
   const onQuantityClick = useContext(onQuantityChange);
-
-  console.log(props.quantity);
   // function onQuantityIncrease(e) {
   //   const obj = productObj.filter((ele) => ele.id == props.id)[0];
   //   if (obj.qty <= 5) obj.qty += 1;
@@ -49,7 +45,7 @@ const CartObject = (props) => {
           <IoIosStar />
         </div>
         <div>
-          <label htmlFor="qty">Quantity</label>
+          <label htmlFor="qty">Quantity: </label>
           <button
             onClick={() => props.quantity > 1 && onQuantityClick(props.id, -1)}
           >
