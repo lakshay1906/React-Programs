@@ -22,7 +22,10 @@ function ProductPage() {
   }, []);
 
   return (
-    <div className="text-xl max-w-full h-[calc(100vh-4rem)] border border-red-800 flex items-center mt-16 justify-center select-none">
+    <div
+      id="ProductPage"
+      className="text-xl max-w-full h-[calc(100vh-4rem)] flex items-center mt-16 justify-center select-none"
+    >
       <div
         id="left"
         className=" h-fit flex flex-col justify-center items-center px-5 py-5 select-none"
@@ -41,7 +44,7 @@ function ProductPage() {
         </div>
       </div>
       <div
-        id="right"
+        id="ProductPageRight"
         className=" h-[92%] w-7/12 text-xl flex flex-col relative my-10 px-5"
       >
         <div className="flex flex-col mt-[3.2rem] gap-y-1">

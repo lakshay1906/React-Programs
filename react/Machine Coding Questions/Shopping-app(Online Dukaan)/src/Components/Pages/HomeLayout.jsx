@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar";
+import Footer from "../Footer";
 import { Outlet } from "react-router-dom";
 import { DataContext } from "../../Contexts/DataContext";
 import { ProductObj } from "../../Contexts/ProductObj";
@@ -8,10 +9,9 @@ import { onDeleteFunction } from "../../Contexts/DeleteFromCart";
 import { onQuantityChange } from "../../Contexts/onQuantityChangeFunction";
 
 const HomeLayout = () => {
-  // console.log("Radhe Radhe");
+  console.log("Radhe Radhe");
   const [data, setData] = useState({});
   const [showCards, setShowCards] = useState(false);
-  const [cartCounter, setCartCounter] = useState(0);
   const [productId, setProductId] = useState(0);
   const [cartProducts, setCardProducts] = useState([]);
   const [productObj, setProductObj] = useState([]);
@@ -73,7 +73,10 @@ const HomeLayout = () => {
     setNothing(nothing + 1);
   }
   return (
-    <div className="relative min-w-full">
+    <div
+      id="HomeLayout"
+      className="relative max-w-full min-h-[calc(100vh-4rem)]"
+    >
       {showCards && (
         <DataContext.Provider value={data}>
           <ProductObj.Provider
@@ -89,20 +92,24 @@ const HomeLayout = () => {
               <onDeleteFunction.Provider value={removeElementById}>
                 <onQuantityChange.Provider value={onQuantityChangeFunc}>
                   <Navbar />
-                  <Outlet />
+                  <div className="outlet">
+                    <Outlet />
+                  </div>
+                  <Footer />
                   {!isCartFull && cartWarning && (
-                    <div className="bg-red-700 text-white font-semibold self-center justify-self-center w-fit m-auto fixed top-[15%] left-[40%] shadow-normalShadow px-3 py-2 text-xl rounded-md transition-all">
+                    <div className="bg-red-700 text-white font-semibold self-center justify-self-center w-fit m-auto fixed top-[15%] left-[40%] shadow-normalShadow px-3 py-2 text-xl rounded-md transition-all text-center">
                       This item already exist in cart !!
                     </div>
                   )}
                   {!isCartFull && addedToCart && (
-                    <div className="bg-green-700 text-white font-semibold self-center justify-self-center w-fit m-auto fixed top-[15%] left-[40%] shadow-normalShadow px-3 py-2 text-xl rounded-md transition-all">
+                    <div className="bg-green-700 text-white font-semibold self-center justify-self-center w-fit m-auto fixed top-[15%] left-[40%] shadow-normalShadow px-3 py-2 text-xl rounded-md transition-all text-center">
                       Product Added Successfully in Cart.. :)
                     </div>
                   )}
                   {cartFullWarning && (
-                    <div className="bg-red-700 text-white font-semibold self-center justify-self-center w-fit m-auto fixed top-[15%] left-[40%] shadow-normalShadow px-3 py-2 text-xl rounded-md transition-all">
+                    <div className="bg-red-700 text-white font-semibold self-center justify-self-center w-fit m-auto fixed top-[15%] left-[40%] shadow-normalShadow px-3 py-2 text-xl rounded-md transition-all text-center">
                       Your Cart is Full..
+                      <p>Please Proceed to purchase First</p>
                     </div>
                   )}
                 </onQuantityChange.Provider>

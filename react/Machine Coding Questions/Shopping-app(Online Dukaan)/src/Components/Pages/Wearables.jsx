@@ -10,7 +10,7 @@ const Wearables = () => {
   const [page, setPage] = useState(1);
 
   return (
-    <>
+    <div className="pb-10 reduce-bottom-margin">
       <div className="flex flex-wrap px-4 gap-x-2 gap-y-4 py-10 overflow-y-auto mt-16">
         {data.products
           .filter((ele) => {
@@ -75,7 +75,7 @@ const Wearables = () => {
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

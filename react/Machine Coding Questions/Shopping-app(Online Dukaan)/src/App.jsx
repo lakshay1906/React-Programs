@@ -9,7 +9,7 @@ function App() {
     <>
       <div
         id="categories"
-        className="flex flex-col items-center font-semibold mt-16 z-0"
+        className="flex flex-col items-center font-semibold mt-16 z-0 min-h-screen -mb-20"
       >
         <h1 className="text-[2.4rem] font-bold underline-offset-4 underline">
           Categories
@@ -18,31 +18,31 @@ function App() {
           <NavLink to={"/electronicsAndVehicles"}>
             <Category_cards
               category="Electronics and Vehicles"
-              bgImg="url('/src/assets/Electro_vehicle.jpg')"
+              bgImg="url('./assets/Electro_vehicle.jpg')"
             />
           </NavLink>
           <NavLink to="/groceries">
             <Category_cards
               category="Groceries and Fragrances"
-              bgImg="url('/src/assets/Groceries_perfumes.jpg')"
+              bgImg="url('./assets/Groceries_perfumes.jpg')"
             />
           </NavLink>
           <NavLink to="/homeDecoration">
             <Category_cards
               category="Home Decoration and Lightings"
-              bgImg="url('/src/assets/Decoration_lighting.jpg')"
+              bgImg="url('./assets/Decoration_lighting.jpg')"
             />
           </NavLink>
           <NavLink to="/skincare_Bags">
             <Category_cards
               category="Skin Care and Hand Bags"
-              bgImg="url('/src/assets/Skincare_bags.jpg')"
+              bgImg="url('./assets/Skincare_bags.jpg')"
             />
           </NavLink>
           <NavLink to="/wearables">
             <Category_cards
               category="Men and Women Wearables"
-              bgImg="url('/src/assets/Wearables.jpg')"
+              bgImg="url('./assets/Wearables.jpg')"
             />
           </NavLink>
         </div>

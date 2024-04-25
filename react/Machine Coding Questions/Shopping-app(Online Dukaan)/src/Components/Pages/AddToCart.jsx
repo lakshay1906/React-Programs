@@ -9,7 +9,6 @@ const AddToCart = () => {
   const [tax, setTax] = useState(0);
 
   useEffect(() => {
-    // setPrice(productObj.map((ele) => ele.price * ele.qty));
     setTax(
       Math.trunc(
         (productObj
@@ -24,9 +23,15 @@ const AddToCart = () => {
   return (
     <>
       {productObj.length ? (
-        <div className="flex justify-left items-center gap-x-5 mt-16">
-          <div className="mt-5 ml-5 w-7/12 h-[calc(100vh-7rem)] items-center overflow-y-auto">
-            <div className="w-full px-2 flex flex-col items-center justify-center gap-y-5">
+        <div
+          id="AddToCart"
+          className="flex justify-left items-center gap-x-5 mt-16 w-full rounded-md"
+        >
+          <div
+            id="CardsInCart"
+            className="mt-5 ml-5 w-7/12 h-[calc(100vh-7rem)] items-center overflow-y-auto"
+          >
+            <div className="w-full px-2 flex flex-col items-center justify-end gap-y-5">
               {productObj.map((ele) => {
                 return (
                   <CartObject
@@ -48,7 +53,7 @@ const AddToCart = () => {
           </div>
           <div
             id="billing"
-            className="bg-[#292929] w-[37%] h-[calc(100vh-8rem)] text-white text-xl overflow-y-auto"
+            className="bg-[#292929] w-[37%] h-[calc(100vh-7rem)] text-white text-xl overflow-y-auto rounded-md "
           >
             <h2 className="my-2 ml-5">
               <span className=" underline underline-offset-4">Total Bill</span>{" "}
@@ -101,7 +106,7 @@ const AddToCart = () => {
             <div className="w-[30%] h-1 bg-slate-400 m-auto rounded-2xl my-1"></div>
             <div className="w-[30%] h-1 bg-slate-400 m-auto rounded-2xl my-1 mb-3"></div>
             <div className="w-full flex justify-center items-center py-1 mt-6">
-              <button className="m-auto w-fit bg-blue-600 rounded-md px-3 py-1 hover:scale-105 transition-all ">
+              <button className="m-auto w-fit bg-blue-600 rounded-md px-3 py-1 hover:scale-105 transition-all mb-6">
                 Proceed to Purchase
               </button>
             </div>

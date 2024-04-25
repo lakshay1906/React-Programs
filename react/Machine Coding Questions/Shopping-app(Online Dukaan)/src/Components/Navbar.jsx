@@ -24,10 +24,10 @@ const Navbar = () => {
           <div className="relative mt-2">
             <MdOutlineShoppingCart size="2.5rem" className=" cursor-pointer " />
             <span
-              className="text-xl text-white absolute -top-4 -right-2 bg-slate-400 rounded-full w-6 h-6 flex justify-center items-center "
+              className="text-xl text-white absolute -top-3 -right-2 bg-slate-400 rounded-full w-6 h-6 flex justify-center items-center "
               style={{
                 display: cartCounter ? "" : "none",
-                padding: cartCounter < 10 ? "0px" : "14px",
+                padding: cartCounter < 10 ? "0px" : "1rem",
                 // padding: "13px",
               }}
             >

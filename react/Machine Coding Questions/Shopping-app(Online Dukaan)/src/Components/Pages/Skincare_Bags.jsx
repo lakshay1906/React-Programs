@@ -9,7 +9,7 @@ const Skincare_Bags = () => {
   const OnCartClickFunction = useContext(OnCartClick);
 
   return (
-    <>
+    <div className="pb-10 reduce-bottom-margin">
       <div className="flex flex-wrap px-4 gap-x-2 gap-y-4 py-10 overflow-y-auto mt-16">
         {data.products
           .filter((ele) => {
@@ -32,7 +32,7 @@ const Skincare_Bags = () => {
             );
           })}
       </div>
-    </>
+    </div>
   );
 };
 

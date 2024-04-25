@@ -1,3 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* for laptop screen or shorter */
+@media (width<2600px) {
+  .reduce-bottom-margin {
+    margin-bottom: -5rem;
+  }
+}
+@media (width <1320px) {
+  #categories {
+    margin-bottom: 1rem;
+  }
+}
+@media (width<700px) {
+  html {
+    font-size: 12px;
+  }
+  #AddToCart {
+    flex-direction: column;
+  }
+  #CardsInCart {
+    width: 90%;
+    height: fit-content;
+    overflow: visible;
+    margin-left: 0;
+  }
+  #billing {
+    width: 90%;
+    height: fit-content;
+    margin: 3rem 0;
+    overflow: visible;
+    border-radius: 8px;
+  }
+  #ProductPage {
+    height: fit-content;
+    flex-direction: column;
+    margin-top: -3rem;
+  }
+  #ProductPageRight {
+    height: fit-content;
+    width: 90%;
+  }
+}
+/* for mobile screens */
+@media (width<400px) {
+  html {
+    font-size: 10px;
+  }
+  #ProductPage {
+    margin-top: 0rem;
+  }
+}
+@media (width<300px) {
+  html {
+    font-size: 10px;
+  }
+  #ProductPage {
+    margin-top: 0rem;
+  }
+}
+
+/* for bigger screens */
+
+/* for tablets */
+@media (width>=700px) {
+  html {
+    font-size: 14px;
+  }
+}
+/* for laptop screens */
+@media (width>=1000px) {
+  html {
+    font-size: 16px;
+  }
+}
+/* for big screen laptops */
+@media (width>=1400px) {
+  html {
+    font-size: 18px;
+  }
+  #categories {
+    margin-bottom: 0;
+  }
+}
+/* For 4k screens */
+@media (width>=2200px) {
+  html {
+    font-size: 23px;
+  }
+  #ProductPageRight {
+    width: 66.66%;
+  }
+  #categories {
+    margin-bottom: -6rem;
+  }
+}
