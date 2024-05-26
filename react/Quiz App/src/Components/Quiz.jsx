@@ -1,10 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState, useRef } from "react";
 import QuizContext from "../Context/QuizContext";
-import OptionBtn from "./OptionBtn";
+import { shuffleFunction } from "../Context/ShuffleFunctionContext";
+import { NavLink } from "react-router-dom";
 
 const Quiz = () => {
   const {
     apiData,
+    setApiData,
     noQues,
     quesCounter,
     setQuesCounter,
@@ -16,110 +18,126 @@ const Quiz = () => {
     setDisable,
     bgColor,
     setbgColor,
+    setLoad,
     load,
     error,
     setError,
   } = useContext(QuizContext);
+  const shuffle = useContext(shuffleFunction);
+  const [selected, setSelected] = useState("");
+  const optionRef = useRef(null);
 
-  function onOptionClick(e) {
-    if (e.target.innerText === apiData.results[quesCounter].correct_answer) {
+  function onOptionClick(option) {
+    setSelected(option);
+    if (option === apiData.results[quesCounter].correct_answer)
       setScore(score + 1);
-      e.target.style.backgroundColor = "#00C04B";
-      setbgColor("#00C04B");
-      console.log("Right Answer");
-    } else {
-      e.target.style.backgroundColor = "#FF3535";
-      setbgColor("#FF3535");
-      console.log("Wrong answer!!");
-    }
     setError(false);
     setDisable(true);
   }
 
-  function onNextClick(e) {
-    console.log(quesCounter);
-    if (!disable) {
-      setError(true);
-    } else {
-      setQuesCounter(quesCounter + 1);
-      setDisable(false);
-      setShuffledArray(shuffle(apiData, quesCounter));
-      console.log("onNextClick");
+  function handleSelect(option) {
+    if (
+      selected === option &&
+      selected === apiData.results[quesCounter].correct_answer
+    ) {
+      return "bg-green-700 text-white";
+    } else if (
+      selected === option &&
+      selected !== apiData.results[quesCounter].correct_answer
+    ) {
+      return "bg-red-700 text-white";
+    } else if (option === apiData.results[quesCounter].correct_answer) {
+      return "bg-green-700 text-white";
     }
   }
 
-  function shuffle() {
-    let arr = [
-      apiData.results[quesCounter].correct_answer,
-      ...apiData.results[quesCounter].incorrect_answers,
-    ];
-    for (let i = arr.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      let temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
+  function onNextClick() {
+    setSelected("");
+    if (!disable) setError(true);
+    else {
+      setQuesCounter(quesCounter + 1);
+      setDisable(false);
+      if (quesCounter + 1 < noQues)
+        setShuffledArray(shuffle(apiData, quesCounter + 1));
     }
-    return arr;
   }
-  // useEffect(() => {
-  //   if (load) setTimeout(() => setShuffledArray(shuffle()), 500);
-  //   else setShuffledArray(shuffle());
-  // }, [quesCounter]);
+
+  function onTryAgainClick() {
+    setQuesCounter(0);
+    setScore(0);
+    setLoad(false);
+    setApiData({});
+  }
 
   return load ? (
     quesCounter < noQues ? (
-      <div className="w-full h-screen flex justify-center items-center">
-        <div className="w-10/12 min-h-5/6 border border-white flex flex-col items-center rounded-xl bg-white gap-y-20 py-5 relative">
-          <div
-            id="score"
-            className="absolute top-1 right-2 text-xl font-semibold"
-          >
-            Score : {`${score} / ${noQues}`}
+      <div className="max-w-full min-h-screen flex flex-col justify-between items-center pb-28">
+        <div
+          id="score"
+          className="my-2 mt-5 mr-3 text-xl font-semibold bg-white px-2 py-1 rounded self-end w-fit"
+        >
+          Score : {`${score} / ${noQues}`}
+        </div>
+        <div className="w-9/12 min-h-5/6 border border-white flex flex-col items-center rounded-xl bg-white gap-y-5 py-5 res-card">
+          <div className="mx-3 ml-6 mb-4 h-fit self-start">
+            <div className="text-2xl font-semibold text-gray-700  h-fit flex items-start">
+              <span className="mr-2 flex">
+                <span>Ques:</span>{" "}
+                <span className="font-bold">{quesCounter + 1}</span>
+              </span>
+              <span>{apiData.results[quesCounter].question}</span>
+            </div>
           </div>
-          <h1 id="question" className=" w-full text-left text-2xl px-5 py-2">
-            {apiData.results[quesCounter].question}
-          </h1>
           {error && (
-            <div className=" bg-[#FF5308] w-[90%] px-2 text-center text-xl py-2 rounded-md -my-16 font-semibold text-white">
+            <div className=" bg-[#FF5308] w-[90%] px-2 text-center text-xl py-2 rounded-md  font-semibold text-white">
               Please select any option to proceed
             </div>
           )}
-          <div className="flex flex-col border border-rose-700 w-8/12 justify-center items-center h-60 gap-y-20 text-[1.35rem]">
-            <div className=" w-full flex justify-around">
-              <OptionBtn
-                onOptionClickFunc={onOptionClick}
-                data={shuffledArray[0]}
-              />
-              <OptionBtn
-                onOptionClickFunc={onOptionClick}
-                data={shuffledArray[1]}
-              />
-            </div>
-            <div className=" w-full flex justify-around">
-              <OptionBtn
-                onOptionClickFunc={onOptionClick}
-                data={shuffledArray[2]}
-              />
-              <OptionBtn
-                onOptionClickFunc={onOptionClick}
-                data={shuffledArray[3]}
-              />
-            </div>
+          <div className="grid grid-cols-1 gap-4 text-lg  w-8/12 h-fit res-options">
+            {shuffledArray.map((option) => (
+              <button
+                key={option}
+                ref={optionRef}
+                className={`w-full p-4 text-left bg-gray-200 rounded-lg ${
+                  !selected && "hover:bg-gray-300"
+                } ${selected && handleSelect(option)}`}
+                onClick={() => onOptionClick(option)}
+                // style={{ backgroundColor: !disable && "#CBD5E1" }}
+                disabled={disable}
+              >
+                {option}
+              </button>
+            ))}
           </div>
           <button
             className="text-2xl bg-slate-800 text-white px-4 py-1 rounded-lg hover:scale-105 transition-all"
-            onClick={(e) => onNextClick(e)}
-            // disabled={!disable}
+            onClick={onNextClick}
           >
-            Next
+            {quesCounter + 2 <= Number(noQues) ? "Next" : "Submit"}
           </button>
         </div>
       </div>
     ) : (
       load && (
-        <div className="w-8/12 h-screen m-auto flex justify-center items-center">
-          <div className="text-6xl w-full h-[45%] flex justify-center items-center bg-white rounded-3xl">
-            Your Score is : {score} / {noQues}
+        <div
+          id="scoreBoard"
+          className="w-8/12 h-screen m-auto flex justify-center items-center"
+        >
+          <div className="text-[3.75em] w-full h-[45%] flex justify-center items-center bg-white rounded-3xl flex-col gap-y-5">
+            <div className="flex gap-4 res-scoreBoard-score">
+              <p>Your Score is :</p>{" "}
+              <span className=" font-semibold">
+                {score} / {noQues}
+              </span>
+            </div>
+            <NavLink to={"/"}>
+              <button
+                onClick={onTryAgainClick}
+                className="w-fit bg-blue-600 text-white px-4 py-2 font-semibold text-2xl rounded-md hover:scale-105 transition-all"
+              >
+                Try Again
+              </button>
+            </NavLink>
           </div>
         </div>
       )
@@ -127,13 +145,11 @@ const Quiz = () => {
   ) : (
     <div
       id="container"
-      className="w-full h-screen flex justify-center items-center"
+      className="max-w-full min-h-screen flex justify-center items-center"
     >
-      <div className="w-56 h-56 border-8 rounded-[500%] border-t-black animate-spin"></div>
+      <div className="w-56 h-56 border-8 rounded-full border-t-black animate-spin"></div>
     </div>
   );
 };
 
 export default Quiz;
-
-// Next button last question prr jaate hi submit btn bn jae

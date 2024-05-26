@@ -17,20 +17,17 @@ const HomeLayout = () => {
   const [error, setError] = useState(false);
 
   function shuffle(data, counter) {
-    console.log("sufflue working");
     let arr = [
       data.results[counter].correct_answer,
       ...data.results[counter].incorrect_answers,
     ];
-    console.log(arr);
     for (let i = arr.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       let temp = arr[i];
       arr[i] = arr[j];
       arr[j] = temp;
     }
-    console.log(counter);
-    console.log(quesCounter);
+    // console.log(arr);
     return arr;
   }
 

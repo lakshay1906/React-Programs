@@ -2,15 +2,116 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  background: rgb(2, 8, 135);
+html {
+  min-width: 100%;
+  min-height: 100vh;
+}
+body {
+  max-width: 100%;
+  min-height: 100vh;
+  background: rgb(255, 31, 81);
   background: linear-gradient(
-    90deg,
-    rgba(2, 8, 135, 1) 0%,
-    rgba(100, 122, 163, 1) 50%,
-    rgba(198, 235, 190, 1) 100%
+    150deg,
+    rgba(255, 31, 81, 1) 0%,
+    rgba(75, 0, 196, 1) 100%
   );
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .img-shadow:hover {
   box-shadow: 0 0 10px black;
+}
+
+@media (width<=2600px) {
+  html {
+    font-size: 24px;
+  }
+}
+@media (width<=1800px) {
+  html {
+    font-size: 22px;
+  }
+}
+@media (width<=1500px) {
+  html {
+    font-size: 16px;
+  }
+  #left img {
+    width: 22rem;
+  }
+}
+@media (width<=1100px) {
+  html {
+    font-size: 14px;
+  }
+  #left img {
+    width: 22rem;
+  }
+}
+@media (width<=768px) {
+  html {
+    font-size: 13px;
+  }
+  #left img {
+    width: 20rem;
+    margin-top: 1rem;
+  }
+  .res-homepage {
+    flex-direction: column;
+  }
+  .res-heading {
+    margin-top: 1rem;
+  }
+  #right {
+    width: 80%;
+  }
+  #scoreBoard {
+    width: 88%;
+  }
+}
+@media (width<=500px) {
+  html {
+    font-size: 14px;
+    width: fit-content;
+  }
+  .res-card {
+    width: 90%;
+  }
+  .res-options {
+    width: 90%;
+  }
+  #scoreBoard {
+    width: 95%;
+    font-size: 11px;
+  }
+}
+@media (width < 450px) {
+  #left {
+    width: 25rem;
+  }
+  #right {
+    width: 100%;
+  }
+}
+@media (width<=400px) {
+  html {
+    font-size: 13px;
+    width: fit-content;
+  }
+  .res-card {
+    width: 90%;
+  }
+  .res-options {
+    width: 90%;
+  }
+  #scoreBoard {
+    font-size: 9px;
+  }
+}
+@media (width<320px) {
+  .res-scoreBoard-score {
+    flex-direction: column;
+    align-items: center;
+  }
 }
