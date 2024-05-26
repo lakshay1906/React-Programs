@@ -26,7 +26,14 @@ function App() {
         </button>
       </div>
       <button onClick={() => dispatch(IncrementByAmount(2))}>+5</button>
-      <button onClick={() => dispatch(Hide())}>Hide</button>
+      <button
+        onClick={() => {
+          dispatch(Hide());
+          console.log(hide);
+        }}
+      >
+        Hide
+      </button>
       <Data />
     </>
   );
