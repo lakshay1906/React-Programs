@@ -1,28 +1,122 @@
-function Seekbar(){
-    return (
-        <>
-        <div class="seekbar">
-        <div class="song-detail">
-          <div class="song-img">
-            <img src="/src/assets/Songs_image/Satranga.jpg" />
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import {
+  BiSolidVolumeFull,
+  BiSolidVolume,
+  BiSolidVolumeLow,
+  BiSolidVolumeMute,
+} from "react-icons/bi";
+// import { playlistTracks } from "../Data/Constants";
+
+function Seekbar() {
+  const singleSong = useSelector((state) => state.singleSong);
+  const playlistTracks = useSelector((state) => state.songTracks);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [counter, setCounter] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(100);
+  const [mute, setMute] = useState(false);
+
+  const audioRef = useRef(null);
+
+  function handleSeekBar(e) {
+    audioRef.current.currentTime = e.target.value;
+    setCurrentTime(e.target.value);
+  }
+
+  function handleTimeUpdate() {
+    setCurrentTime(audioRef.current.currentTime);
+    setDuration(audioRef.current.duration);
+  }
+
+  function handlePlayPause() {
+    if (isPlaying) audioRef.current.play();
+    else audioRef.current.pause();
+    setIsPlaying(!isPlaying);
+  }
+
+  function formatDuration(durationSeconds) {
+    const minutes = Math.floor(durationSeconds / 60);
+    const seconds = Math.floor(durationSeconds % 60);
+    const formattedSeconds = seconds.toString().padStart(2, "0");
+    return `${minutes}:${formattedSeconds}`;
+  }
+
+  function onVolumeChange(value) {
+    audioRef.current.volume = value;
+    setVolume(value);
+  }
+  function onMute() {
+    // if (mute) setVolume(0);
+    // else setVolume(0.4);
+    setMute(!mute);
+    setVolume(0);
+  }
+
+  function calcCounter() {
+    for (let i = 0; i < playlistTracks.tracks.items.length; i++) {
+      const element = playlistTracks.tracks.items[i];
+      if (element.track.id == singleSong.track.id) setCounter(i);
+    }
+  }
+  useEffect(() => {
+    audioRef.current.addEventListener("timeupdate", handleTimeUpdate);
+    return () => {
+      audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
+    };
+  }, []);
+  useEffect(() => {
+    setIsPlaying(true);
+    audioRef.current.pause();
+  }, [counter]);
+
+  useEffect(() => {
+    calcCounter();
+  }, [singleSong]);
+  return (
+    <>
+      <div className="seekbar">
+        <div className="song-detail">
+          <div className="song-img">
+            <img
+              src={
+                playlistTracks.tracks.items[counter].track.album.images[1].url
+              }
+            />
           </div>
-          <div class="about-song">
-            <h4 class="song-title">Satranga (From "Animal")</h4>
-            <p class="singer">
-              Arijit Singh, Shreyas Puranik, Siddharth - Garima
-            </p>
+          <div className="about-song">
+            <h4 className="song-title">
+              {playlistTracks.tracks.items[counter].track.name}
+            </h4>
+            {/* <div className="singer">
+              {playlistTracks.tracks.items[counter].track.artists.map(
+                (artist, artistIdx) => (
+                  <span key={artist.id} id={artist.id}>
+                    <NavLink>{artist.name}</NavLink>
+                    {playlistTracks.tracks.items[counter].track.artists.length -
+                      1 <=
+                    artistIdx
+                      ? ""
+                      : ", "}
+                  </span>
+                )
+              )}
+            </div> */}
           </div>
         </div>
-        <div class="other-detail">
-          <div class="functions">
-            <div class="left-function-svg">
-              <div class="now-playing-view">
+        <div className="other-detail">
+          <div className="functions">
+            <div className="left-function-svg">
+              <div className="now-playing-view">
                 <svg
                   data-encore-id="icon"
                   role="img"
                   aria-hidden="true"
                   viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 dYnaPI"
+                  className="Svg-sc-ytk21e-0 dYnaPI"
                 >
                   <path d="M11.196 8 6 5v6l5.196-3z" fill="#a7a7a7"></path>
                   <path
@@ -31,13 +125,13 @@ function Seekbar(){
                   ></path>
                 </svg>
               </div>
-              <div class="lyrics">
+              <div className="lyrics">
                 <svg
                   data-encore-id="icon"
                   role="img"
                   aria-hidden="true"
                   viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 dYnaPI"
+                  className="Svg-sc-ytk21e-0 dYnaPI"
                 >
                   <path
                     d="M13.426 2.574a2.831 2.831 0 0 0-4.797 1.55l3.247 3.247a2.831 2.831 0 0 0 1.55-4.797zM10.5 8.118l-2.619-2.62A63303.13 63303.13 0 0 0 4.74 9.075L2.065 12.12a1.287 1.287 0 0 0 1.816 1.816l3.06-2.688 3.56-3.129zM7.12 4.094a4.331 4.331 0 1 1 4.786 4.786l-3.974 3.493-3.06 2.689a2.787 2.787 0 0 1-3.933-3.933l2.676-3.045 3.505-3.99z"
@@ -45,13 +139,13 @@ function Seekbar(){
                   ></path>
                 </svg>
               </div>
-              <div class="queue">
+              <div className="queue">
                 <svg
                   data-encore-id="icon"
                   role="img"
                   aria-hidden="true"
                   viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 dYnaPI"
+                  className="Svg-sc-ytk21e-0 dYnaPI"
                 >
                   <path
                     d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5zm2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2h-9z"
@@ -59,12 +153,12 @@ function Seekbar(){
                   ></path>
                 </svg>
               </div>
-              <div class="connect-to-device">
+              <div className="connect-to-device">
                 <svg
                   data-encore-id="icon"
                   role="presentation"
                   aria-hidden="true"
-                  class="Svg-sc-ytk21e-0 dYnaPI"
+                  className="Svg-sc-ytk21e-0 dYnaPI"
                   viewBox="0 0 16 16"
                 >
                   <path
@@ -78,32 +172,17 @@ function Seekbar(){
                 </svg>
               </div>
             </div>
-            <div class="center-function-svg">
-              <div class="shuffle">
+            <div className="center-function-svg">
+              <div
+                className="previous-song"
+                onClick={() => counter > 0 && setCounter(counter - 1)}
+              >
                 <svg
                   data-encore-id="icon"
                   role="img"
                   aria-hidden="true"
                   viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 dYnaPI"
-                >
-                  <path
-                    d="M13.151.922a.75.75 0 1 0-1.06 1.06L13.109 3H11.16a3.75 3.75 0 0 0-2.873 1.34l-6.173 7.356A2.25 2.25 0 0 1 .39 12.5H0V14h.391a3.75 3.75 0 0 0 2.873-1.34l6.173-7.356a2.25 2.25 0 0 1 1.724-.804h1.947l-1.017 1.018a.75.75 0 0 0 1.06 1.06L15.98 3.75 13.15.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 0 0 .39 3.5z"
-                    fill="#a7a7a7"
-                  ></path>
-                  <path
-                    d="m7.5 10.723.98-1.167.957 1.14a2.25 2.25 0 0 0 1.724.804h1.947l-1.017-1.018a.75.75 0 1 1 1.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 1 1-1.06-1.06L13.109 13H11.16a3.75 3.75 0 0 1-2.873-1.34l-.787-.938z"
-                    fill="#a7a7a7"
-                  ></path>
-                </svg>
-              </div>
-              <div class="previous-song">
-                <svg
-                  data-encore-id="icon"
-                  role="img"
-                  aria-hidden="true"
-                  viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 dYnaPI"
+                  className="Svg-sc-ytk21e-0 dYnaPI"
                 >
                   <path
                     d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"
@@ -111,27 +190,26 @@ function Seekbar(){
                   ></path>
                 </svg>
               </div>
-              <div class="play">
-                <svg
-                  data-encore-id="icon"
-                  role="img"
-                  aria-hidden="true"
-                  viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 dYnaPI"
-                >
-                  <path
-                    d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
-                    fill="#000"
-                  ></path>
-                </svg>
+              <div className="play" onClick={handlePlayPause}>
+                {isPlaying ? (
+                  <FaPlayCircle size="3.3rem" color="white" />
+                ) : (
+                  <FaPauseCircle size="3.3rem" color="white" />
+                )}
               </div>
-              <div class="forward-song">
+              <div
+                className="forward-song"
+                onClick={() =>
+                  playlistTracks.tracks.items.length - 1 > counter &&
+                  setCounter(counter + 1)
+                }
+              >
                 <svg
                   data-encore-id="icon"
                   role="img"
                   aria-hidden="true"
                   viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 dYnaPI"
+                  className="Svg-sc-ytk21e-0 dYnaPI"
                 >
                   <path
                     d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"
@@ -139,54 +217,66 @@ function Seekbar(){
                   ></path>
                 </svg>
               </div>
-              <div class="loop">
-                <svg
-                  data-encore-id="icon"
-                  role="img"
-                  aria-hidden="true"
-                  viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 dYnaPI"
-                >
-                  <path
-                    d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75v-5z"
-                    fill="#a7a7a7"
-                  ></path>
-                </svg>
-              </div>
             </div>
-            <div class="right-function-svg">
-              <div class="mute">
-                <svg
-                  data-encore-id="icon"
-                  role="presentation"
-                  aria-label="Volume high"
-                  aria-hidden="true"
-                  id="volume-icon"
-                  viewBox="0 0 16 16"
-                  class="Svg-sc-ytk21e-0 kcUFwU"
-                >
-                  <path
-                    d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"
-                    fill="#a7a7a7"
-                  ></path>
-                  <path
-                    d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"
-                    fill="#a7a7a7"
-                  ></path>
-                </svg>
+            <div className="right-function-svg">
+              <div className="mute" onClick={onMute}>
+                {mute ? (
+                  volume === 0 ? (
+                    <BiSolidVolumeMute color="#a7a7a7" size={"2rem"} />
+                  ) : (
+                    <BiSolidVolumeMute color="#a7a7a7" size={"2rem"} />
+                  )
+                ) : volume < 0.6 ? (
+                  <BiSolidVolumeLow color="#a7a7a7" size={"2rem"} />
+                ) : (
+                  <BiSolidVolumeFull color="#a7a7a7" size={"2rem"} />
+                )}
               </div>
-              <span class="vol-seek-bar"></span>
+              <input
+                type="range"
+                className="vol-seekbar"
+                step="0.01"
+                min="0"
+                max="1"
+                value={volume}
+                onChange={(e) => {
+                  onVolumeChange(e.target.value);
+                  if (e.target.value === 0) setMute(true);
+                }}
+              />
             </div>
           </div>
-          <div class="duration">
-            <span class="current-time">01:47</span>
-            <span class="duration-seekbar"><div class="time"></div></span>
-            <span class="time-left">03:29</span>
+          <div className="duration">
+            <span className="current-time">{formatDuration(currentTime)}</span>
+            {/* <span className="duration-seekbar"></span> */}
+            <input
+              type="range"
+              min={0}
+              max={29}
+              value={currentTime}
+              onChange={handleSeekBar}
+              className="duration-seekbar"
+            />
+            <span className="time-left">{"00:29"}</span>
+            <audio
+              ref={audioRef}
+              src={playlistTracks.tracks.items[counter].track.preview_url}
+            ></audio>
           </div>
         </div>
       </div>
-        </>
-    )
+    </>
+  );
 }
 
 export default Seekbar;
+
+/* 
+
+#Portfolio #React #WebDev #TechSkills #Projects #CareerJourney #HireMe #Linkedin #Github #Codepen #WebDevelopment #Productivityspace #react #TechInnovation #memoization #reactJS #webDevelopment #javaScript #frontEnd #uiux #reactapp #codenewbie #techinnovation #programming #softwaredevelopment #webdev #developercommunity #digitaltransformation #techforgood #opensource #creativecoding #innovationhub #techskills #projectshowcase #learntocode
+
+Explore my quiz application, where you can select from categories like
+General Knowledge, Mathematics, Sports, Music, and History. Customize
+your quiz by adjusting the number of questions (1-50) and choosing the
+difficulty level (easy, medium, hard). This project showcases my ability to
+create interactive, user-centric educational tools. */
