@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home";
@@ -8,7 +7,6 @@ import Services from "./Components/Services_1";
 import Contact_us from "./Components/Contact_us";
 
 function App() {
-  const [count, setCount] = useState(0);
   const router = createBrowserRouter([
     {
       path: "/",
