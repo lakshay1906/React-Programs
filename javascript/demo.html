@@ -14,7 +14,7 @@
       .js {
         color: red;
       } */
-      .box {
+      /* .box {
         width: 200px;
         height: 150px;
         overflow: hidden;
@@ -30,6 +30,58 @@
         height: auto;
         white-space: normal;
         font-size: 18px;
+      } */
+      * {
+        border: none;
+        outline: none;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        background-color: #2f2f2f;
+      }
+      .slider {
+        position: relative;
+        width: 200px;
+        height: 20px;
+        border: 1px solid white;
+      }
+      .slider input {
+        position: absolute;
+        left: -6px;
+        top: 0;
+        width: 200px;
+        height: 20px;
+        -webkit-apperance: none;
+        background-color: transparent;
+        /* z-index: -99; */
+      }
+      .slider input::-webkit-slider-thumb {
+        -webkit-apperance: none;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border: 2px solid #e91e63;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .slider progress {
+        position: absolute;
+        left: 0px;
+        top: 0;
+        width: 200px;
+        height: 20px;
+        -webkit-apperance: none;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .slider progress::-webkit-progress-bar {
+        background-color: #f0f0f0;
+      }
+      .slider progress::-webkit-progress-value {
+        background-color: #e91e63;
       }
     </style>
   </head>
@@ -57,9 +109,20 @@
       dapibus. Ut id tincidunt purus. Fusce convallis est justo, eu luctus
       mauris tempus vel. Nulla facilisi.
     </div> -->
-    <button onclick="onBtnClick()">Click</button>
-    <button onclick="onIncrease()">Increase</button>
+    <!-- <button onclick="onBtnClick()">Click</button>
+    <button onclick="onIncrease()">Increase</button> -->
     <!-- <script src="demo.js"></script> -->
+    <div class="slider">
+      <input
+        type="range"
+        min="0"
+        max="50"
+        value="50"
+        class="slider"
+        id="volumeRange"
+      />
+      <progress min="0" max="100" value="50"></progress>
+    </div>
     <script src="index_2.js"></script>
   </body>
 </html>
