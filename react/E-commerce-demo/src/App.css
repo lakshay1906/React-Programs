@@ -1,0 +1,8 @@
+.transition-css {
+  transition: all 1s ease-in-out;
+}
+.grid-css {
+  width: 30rem;
+  display: grid;
+  grid-template-columns: 60% 13% 14% 13%;
+}
