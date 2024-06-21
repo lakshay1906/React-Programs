@@ -3,6 +3,7 @@ Step :- 1 Install below two packages
 ```
 npm install react-redux
 npm install @reduxjs/toolkit
+npm run dev
 ```
 
 Step :- 2 Create a folder named as App and create a file named as store.js.

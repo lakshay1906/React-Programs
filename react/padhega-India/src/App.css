@@ -1,0 +1,14 @@
+.slick-dots {
+  background: black;
+}
+.slick-arrow {
+  color: black;
+  background-color: white;
+}
+.slick-next::before {
+  font-size: 200px;
+}
+
+footer ul li:hover {
+  color: orangered;
+}

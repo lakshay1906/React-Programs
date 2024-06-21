@@ -1,0 +1,49 @@
+/* src/components/BannerCarousel.css */
+
+.carousel-container {
+  position: relative;
+  /* max-width: 800px; */
+  margin: 0 auto;
+}
+
+.carousel-slide {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.carousel-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-content h2 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+}
+
+.carousel-content p {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+}
+
+.carousel-content button {
+  padding: 10px 20px;
+  border: none;
+  background: #ff5a5f;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
