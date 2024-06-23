@@ -1,31 +1,60 @@
-// import { useState } from 'react'
-import React from "react";
-import "./App.css";
-import Heading from "./bharat_clock_components/heading";
-import Para from "./bharat_clock_components/text_in_clock";
-import ClockCurrent from "./bharat_clock_components/clock";
-import Heading_Food from "./healthy_foods_components/heading";
-import Item_list from "./healthy_foods_components/list";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  removeQualified,
+  setEmpData,
+  setQualifiedEmp,
+} from "./Features/EmpReducer";
+import { employees } from "./Data/Data";
 
 function App() {
-  console.log(import.meta.env.VITE_REACT_APP_SECRET_KEY);
-  return (
-    <>
-      {/* The above empty tag is just a fragment to enlcose the whole code into a single tag. We are doing so because react doesn't allow us to return multiple tags.
-    We can also use  <></>  OR  <React.Fragment></React.Fragment> means of both the tag is same but <React.Fragment></React.Fragment> will only work if we have imported React in our file.
-    */}
-      {/* <Heading className="heading"/>
-      <Para/>
-      <ClockCurrent></ClockCurrent> */}
-    </>
-  );
+  const dispatch = useDispatch();
+  const empData = useSelector((state) => state.empData);
+  const qualifiedEmp = useSelector((state) => state.qualified);
 
-  // return(
-  //   <>
-  //   <Heading_Food/>
-  //   <Item_list/>
-  //   </>
-  // )
+  useEffect(() => {
+    dispatch(setEmpData(employees));
+  });
+
+  return (
+    <div className="flex gap-40">
+      <ul className="flex flex-col gap-2 m-5 border border-black p-3">
+        <h1>All Employees</h1>
+        {empData.map((ele) => (
+          <li key={ele.id} id={ele.id} className="flex gap-2">
+            <span>{ele.name}</span>
+            <button
+              className="bg-gray-300 px-2 py-1"
+              onClick={() => dispatch(setQualifiedEmp(ele))}
+            >
+              Add
+            </button>
+          </li>
+        ))}
+      </ul>
+      <div className="border border-black m-5 p-3">
+        <ul className="flex flex-col gap-2">
+          <h1>Qualified Employees</h1>
+          {qualifiedEmp.map((ele) => (
+            <li key={ele.id} id={ele.id} className="flex gap-4">
+              <span>{ele.name}</span>
+              <button
+                className="bg-gray-300 px-2 py-1"
+                onClick={() => dispatch(removeQualified(ele.id))}
+              >
+                Delete
+              </button>
+              <div className="text-lg flex gap-1">
+                <span>⬆️</span>
+                <span>{ele.age}</span>
+                <span>⬇️</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 export default App;
