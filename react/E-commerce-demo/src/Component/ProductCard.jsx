@@ -1,11 +1,29 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setCartProducts, setSingleProduct } from "../Features/ProductReducer";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setCartProducts,
+  setNotification,
+  setNotificationTimer,
+  setSingleProduct,
+} from "../Features/ProductReducer";
 import { NavLink } from "react-router-dom";
 
 const Card = ({ data }) => {
   const dispatch = useDispatch();
+  const cartProducts = useSelector((state) => state.productData.cartProducts);
 
+  function onCartClick() {
+    let cart = false;
+    cart = cartProducts.filter((prod) => prod.id === data.id);
+    if (!cart.length) {
+      dispatch(setCartProducts(data));
+      dispatch(setNotification(true));
+    } else {
+      dispatch(setNotification(false));
+      dispatch(setNotificationTimer(true));
+      setTimeout(() => dispatch(setNotificationTimer(false)), 2000);
+    }
+  }
   return (
     <>
       <div
@@ -38,11 +56,11 @@ const Card = ({ data }) => {
             </p>
           </div>
           <h2 className="m-auto text-lg">₹ {Number(data.price).toFixed(0)}</h2>
-          <h2 className="m-auto text-lg">⭐⭐⭐⭐</h2>
+          {/* <h2 className="m-auto text-lg">⭐⭐⭐⭐</h2> */}
         </NavLink>
         <button
           className="m-auto text-xl bg-blue-800 rounded w-full h-8 -mt-1 focus-visible:outline-none focus-visible:border-none"
-          onClick={() => dispatch(setCartProducts(data))}
+          onClick={onCartClick}
         >
           Add to Cart
         </button>

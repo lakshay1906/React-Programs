@@ -13,11 +13,11 @@ function CartPage() {
   const dispatch = useDispatch();
 
   function calcSubTotal() {
-    setSubTotal(() => {
-      return cartProducts
-        .map((product) => product.price * product.qty)
-        .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-    });
+    const total = cartProducts
+      .map((product) => product.price * product.qty)
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    setSubTotal(total);
+    if (total > 500) setdeliveryCharge(0);
   }
   function calcTax() {
     const total = subTotal + deliveryCharge;
@@ -25,40 +25,17 @@ function CartPage() {
       return (total * 18) / 100;
     });
   }
-  // function increaseQty(qty) {
-  //   // if (qty >= 6) return;
-  //   // else {
-  //   //   qty = qty + 1;
-  //   //   console.log(qty);
-  //   // }
-  //   console.log(qty);
-  // }
-  // function decreaseQty(qty) {
-  //   // if (qty <= 0) return;
-  //   // else qty--;
-  //   console.log(qty);
-  // }
 
   function onQuantityChangeFunc(id, op) {
-    let index = -1;
-    let a = cartProducts.map((product) => {
-      if (product.id == id) {
-        product.qty += op;
-      }
-    });
+    let tempArr = cartProducts;
+    let product = tempArr.filter((ele) => ele.id == id);
+    product[0].qty += 1;
+    console.log(product);
   }
-  // function onRemove(product) {
-  //   let cloneArr = [...cartProducts];
-  //   let temp = cloneArr.filter((ele) => ele.id != product.id);
-  //   console.log(temp);
-  //   console.log(cloneArr);
-  //   dispatch(setCartProducts(...temp));
-  // }
 
   useEffect(() => {
     calcSubTotal();
     calcTax();
-    if (subTotal > 500) setdeliveryCharge(0);
   }, [cartProducts]);
 
   return (
@@ -68,15 +45,15 @@ function CartPage() {
           <div className="pb-5">
             <div className="container">
               <div className="row">
-                <div className="col-lg-12 p-5 bg-white rounded shadow-2xl mb-5">
+                <div className="col-lg-12 p-5 bg-white rounded shadow-2xl mb-5 cart-res">
                   {/* <!-- Shopping cart table --> */}
                   <div className="">
-                    <div className="grid grid-cols-[56%_14%_18%_12%] border border-black text-[1.10rem] font-bold h-16 uppercase">
+                    <div className="grid grid-cols-[60%_21%_19%] border border-black text-[1.10rem] font-bold h-16 uppercase">
                       <div className="ml-3 place-content-start self-center">
                         Product
                       </div>
                       <div className="place-self-center">Price</div>
-                      <div className="place-self-center">Quantity</div>
+                      {/* <div className="place-self-center">Quantity</div> */}
                       <div className="place-self-center">Remove</div>
                     </div>
                     <div>
@@ -85,7 +62,7 @@ function CartPage() {
                           <div
                             key={product.id}
                             id={product.id}
-                            className="grid grid-cols-[56%_14%_18%_12%] border border-black text-[1.09rem] font-semibold py-2"
+                            className="grid grid-cols-[60%_21%_19%] border border-black text-[1.09rem] font-semibold py-2"
                           >
                             <div className="ml-3 place-content-start self-center">
                               <div className="w-20">
@@ -103,7 +80,7 @@ function CartPage() {
                             <div className="place-self-center text-lg">
                               ₹ {Number(product.price).toFixed(0)}
                             </div>
-                            <div className="place-self-center text-lg flex gap-2 items-center">
+                            {/* <div className="place-self-center text-lg flex gap-2 items-center">
                               <span
                                 className="cursor-pointer"
                                 onClick={() =>
@@ -121,9 +98,9 @@ function CartPage() {
                               >
                                 <FaCirclePlus size={"1.4rem"} />
                               </span>
-                            </div>
+                            </div> */}
                             <div
-                              className="place-self-center"
+                              className="place-self-center bg-black text-white p-[0.3rem] rounded-lg hover:rounded-full transition-all"
                               onClick={() =>
                                 dispatch(removeFromCart(product.id))
                               }
@@ -139,7 +116,7 @@ function CartPage() {
                 </div>
               </div>
 
-              <div className="row py-5 p-4 bg-white rounded shadow-xl">
+              <div className="row py-5 p-2 bg-white rounded shadow-xl billing-res">
                 <div className="col-lg-6">
                   <div className="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">
                     Coupon code

@@ -7,3 +7,33 @@ a:hover {
   text-decoration: inherit;
   color: inherit;
 }
+
+@media (width <= 768px) {
+  html {
+    font-size: 12px;
+  }
+  .cart-res {
+    padding: 2rem !important;
+  }
+  .productImg-res {
+    align-self: center;
+    margin: 2rem 0;
+  }
+}
+@media (width <= 500px) {
+  html {
+    font-size: 10px;
+  }
+  .billing-res {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+@media (width <= 400px) {
+  html {
+    font-size: 9px;
+  }
+  .cart-res {
+    padding: 1.5rem !important;
+  }
+}

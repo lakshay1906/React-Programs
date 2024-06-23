@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  productData: {},
+  productData: [],
   cartProducts: [],
   singleProduct: {},
+  notification: undefined,
+  notificationTimer: false,
+  // quantity: 1,
   // onQuantityChange: (id, op, cartData) => {},
 };
 
@@ -26,6 +29,13 @@ export const productReducer = createSlice({
         (product) => product.id !== action.payload
       );
     },
+    setNotification: (state, action) => {
+      state.notification = action.payload;
+    },
+    setNotificationTimer: (state, action) => {
+      state.notificationTimer = action.payload;
+    },
+    // setQuantity: () => {},
   },
 });
 
@@ -34,6 +44,8 @@ export const {
   setCartProducts,
   setSingleProduct,
   removeFromCart,
+  setNotification,
+  setNotificationTimer,
 } = productReducer.actions;
 
 export default productReducer.reducer;

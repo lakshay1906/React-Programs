@@ -7,10 +7,10 @@ function PDP() {
   const dispatch = useDispatch();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pdp-res">
       <div className="flex flex-col md:flex-row -mx-4">
-        <div className="md:flex-1 px-4 w-56 flex items-center justify-center">
-          <img src={product.image} className="w-[50%]" />
+        <div className="md:flex-1 px-4 w-56 flex items-center justify-center self-center productImg-res">
+          <img src={product.image} className="w-[100%]" />
         </div>
         <div className="md:flex-1 px-4">
           <h2 className="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">
@@ -43,7 +43,7 @@ function PDP() {
           <div className="flex py-4 space-x-4">
             <button
               type="button"
-              className="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white"
+              className="w-full py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-lg hover:scale-105 hover:font-bold transition-all"
               onClick={() => dispatch(setCartProducts(product))}
             >
               Add to Cart
